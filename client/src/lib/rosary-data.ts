@@ -144,8 +144,8 @@ const rawBeads: BeadData[] = [
     type: 'cross',
     label: 'Cross',
     prayer: {
-      title: 'The Sign of the Cross',
-      body: 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
+      title: 'Carthusian Rosary with 50 Meditations',
+      body: 'Let us meditate on the life of our Lord Jesus Christ and his Blessed Mother.',
       subtext: 'Apostles Creed'
     },
     image: sacredHeartImg
