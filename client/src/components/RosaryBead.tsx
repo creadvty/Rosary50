@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { BeadType } from '@/lib/rosary-data';
 
@@ -40,18 +40,20 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
     >
       {isCross && (
         <div className={cn(
-          "w-16 h-24 bg-stone-800 rounded-sm shadow-2xl flex items-center justify-center relative overflow-hidden border border-stone-600",
+          "w-16 h-24 bg-stone-300 rounded-sm shadow-2xl flex items-center justify-center relative overflow-hidden border border-stone-400",
           activeStyle
         )}>
            {image ? (
-             <img src={image} alt="Cross" className="absolute inset-0 w-full h-full object-cover opacity-90" />
+             <img src={image} alt="Cross" className="absolute inset-0 w-full h-full object-cover opacity-90 brightness-125" />
            ) : (
              <>
                <div className="absolute w-10 h-1 bg-stone-400/80 top-6 rounded-sm" />
                <div className="absolute w-1 h-16 bg-stone-400/80 rounded-sm" />
              </>
            )}
-           <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" />
+           {/* Metallic sheen */}
+           <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent pointer-events-none" />
+           <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(255,255,255,0.5)]" />
         </div>
       )}
 

@@ -1,9 +1,12 @@
 import crucifixImg from '@assets/generated_images/wooden_crucifix_in_renaissance_style.png';
+import metalCrucifixImg from '@assets/generated_images/metal_religious_crucifix_renaissance_style.png';
 import medalImg from '@assets/generated_images/virgin_mary_holding_baby_jesus_medal_style.png';
 import annunciationImg from '@assets/generated_images/the_annunciation_to_mary_by_angel_gabriel.png';
 import nativityImg from '@assets/generated_images/the_nativity_scene_jesus_in_manger.png';
 import crucifixionArt from '@assets/generated_images/the_crucifixion_of_jesus_christ.png';
 import ascensionArt from '@assets/generated_images/the_ascension_of_jesus_christ.png';
+import baptismArt from '@assets/generated_images/the_baptism_of_jesus_christ_in_the_jordan.png';
+import pilateArt from '@assets/generated_images/jesus_christ_before_pontius_pilate.png';
 
 export type BeadType = 'cross' | 'medal' | 'small' | 'large' | 'chain';
 
@@ -21,6 +24,28 @@ export interface BeadData {
 
 const HAIL_MARY_START = "Hail Mary, full of grace, the Lord is with you. Blessed are you among women and blessed is the fruit of your womb, Jesus";
 const FATIMA_PRAYER = "O my Jesus, forgive us our sins, save us from the fires of hell, and lead all souls to Heaven, especially those in most need of Your Mercy.";
+const CREED = `I believe in God,
+the Father almighty,
+Creator of heaven and earth,
+and in Jesus Christ, his only Son, our Lord,
+who was conceived by the Holy Spirit,
+born of the Virgin Mary,
+suffered under Pontius Pilate,
+was crucified, died and was buried;
+he descended into hell;
+on the third day he rose again from the dead;
+he ascended into heaven,
+and is seated at the right hand of God the Father almighty;
+from there he will come to judge the living and the dead.
+
+I believe in the Holy Spirit,
+the holy catholic Church,
+the communion of saints,
+the forgiveness of sins,
+the resurrection of the body,
+and life everlasting.
+
+Amen.`;
 
 const generateDecade = (
   prefix: string, 
@@ -121,19 +146,19 @@ const rawBeads: BeadData[] = [
       body: 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
       subtext: 'Apostles Creed'
     },
-    image: crucifixImg
+    image: metalCrucifixImg
   },
-  { id: 'chain-1', type: 'chain', label: '', prayer: { title: '', body: '' }, image: crucifixImg },
+  { id: 'chain-1', type: 'chain', label: '', prayer: { title: '', body: '' }, image: metalCrucifixImg },
   {
     id: 'A1',
     type: 'large',
     label: 'A1',
     prayer: {
-      title: 'Introduction',
-      body: 'Our Father, who art in heaven, hallowed be thy name...',
-      subtext: 'Apostle\'s Creed'
+      title: 'Opening prayer',
+      body: CREED,
+      subtext: 'Our Father'
     },
-    image: crucifixImg
+    image: metalCrucifixImg
   },
   {
     id: 'B1',
@@ -144,7 +169,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: 'source of our salvation'
     },
-    image: crucifixImg
+    image: metalCrucifixImg
   },
   {
     id: 'B2',
@@ -155,7 +180,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: 'lover of the soul'
     },
-    image: crucifixImg
+    image: metalCrucifixImg
   },
   {
     id: 'B3',
@@ -166,7 +191,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: 'hope of nations'
     },
-    image: crucifixImg
+    image: metalCrucifixImg
   },
   {
     id: 'C1',
@@ -177,18 +202,18 @@ const rawBeads: BeadData[] = [
       body: 'Glory be to the Father, and to the Son, and to the Holy Spirit.',
       subtext: FATIMA_PRAYER
     },
-    image: crucifixImg
+    image: metalCrucifixImg
   },
   {
     id: 'D1',
     type: 'medal',
     label: 'D1',
     prayer: {
-      title: 'The First Decade',
+      title: 'The First Decade (The Birth of Christ)',
       body: 'Our Father, who art in heaven...',
       subtext: 'The Birth of Christ'
     },
-    image: medalImg
+    image: nativityImg
   },
   ...generateDecade('E', 'The Infancy of Christ', annunciationImg, E_CLAUSES),
   {
@@ -196,11 +221,11 @@ const rawBeads: BeadData[] = [
     type: 'large',
     label: 'F1',
     prayer: {
-      title: 'Doxology & Transition',
-      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
-      subtext: 'The Second Decade (Youth and Public Ministry)'
+      title: 'Second Decade (Youth and Public Ministry)',
+      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      subtext: 'The Youth and Public Ministry'
     },
-    image: nativityImg
+    image: baptismArt
   },
   ...generateDecade('G', 'The Youth and Public Ministry', nativityImg, G_CLAUSES),
   {
@@ -208,11 +233,11 @@ const rawBeads: BeadData[] = [
     type: 'large',
     label: 'H1',
     prayer: {
-      title: 'Doxology & Transition',
-      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
-      subtext: 'The Third Decade (The Passion of the Lord)'
+      title: 'The Third Decade (The Passion of the Lord)',
+      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      subtext: 'The Passion of the Lord'
     },
-    image: nativityImg
+    image: pilateArt
   },
   ...generateDecade('I', 'The Passion of the Lord', nativityImg, I_CLAUSES),
   {
@@ -220,9 +245,9 @@ const rawBeads: BeadData[] = [
     type: 'large',
     label: 'J1',
     prayer: {
-      title: 'Doxology & Transition',
-      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
-      subtext: 'The Fourth Decade (His Crucifixion)'
+      title: 'The Fourth Decade (His Crucifixion)',
+      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      subtext: 'His Crucifixion'
     },
     image: crucifixionArt
   },
@@ -232,9 +257,9 @@ const rawBeads: BeadData[] = [
     type: 'large',
     label: 'L1',
     prayer: {
-      title: 'Doxology & Transition',
-      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
-      subtext: 'The Fifth Decade (His Resurrection)'
+      title: 'The Fifth Decade (His Resurrection)',
+      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      subtext: 'His Resurrection'
     },
     image: ascensionArt
   },
