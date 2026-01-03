@@ -35,9 +35,11 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
         if (fatimaEndIndex !== -1) {
           const beforeFatimaEnd = body.substring(0, fatimaEndIndex + 11);
           const afterFatimaEnd = body.substring(fatimaEndIndex + 11);
-          textToRead = `${bead.prayer.title}. ${beforeFatimaEnd}. ${bead.prayer.subtext}. ${afterFatimaEnd}`;
+          // For transition beads: "Glory Be... Fatima... [Number and Title]... Our Father"
+          // We exclude the bead.prayer.title at the very beginning per request
+          textToRead = `${beforeFatimaEnd}. ${bead.prayer.title}. ${bead.prayer.subtext}. ${afterFatimaEnd}`;
         } else {
-          textToRead = `${bead.prayer.title}. ${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
+          textToRead = `${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
         }
       } else {
         textToRead = `${bead.prayer.title}. ${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
