@@ -2,6 +2,8 @@ import crucifixImg from '@assets/generated_images/wooden_crucifix_in_renaissance
 import medalImg from '@assets/generated_images/virgin_mary_holding_baby_jesus_medal_style.png';
 import annunciationImg from '@assets/generated_images/the_annunciation_to_mary_by_angel_gabriel.png';
 import nativityImg from '@assets/generated_images/the_nativity_scene_jesus_in_manger.png';
+import crucifixionArt from '@assets/generated_images/the_crucifixion_of_jesus_christ.png';
+import ascensionArt from '@assets/generated_images/the_ascension_of_jesus_christ.png';
 
 export type BeadType = 'cross' | 'medal' | 'small' | 'large' | 'chain';
 
@@ -81,6 +83,32 @@ const I_CLAUSES = [
   "who was wrapped in a purple robe, crowned with thorns, and hailed as king by mocking soldiers",
   "who before Caiaphas and Pilate was condemned to a wicked death",
   "who was given the burden of the cross to bear like a criminal to the hill of Golgotha"
+];
+
+const K_CLAUSES = [
+  "nailed to the cross beneath the inscription “This is the King of the Jews”",
+  "who prayed for His murderers, saying “Father, forgive them, for they know not what they do”",
+  "who said to the thief at His right “Amen I say to thee, this day thou shalt be with Me in paradise”",
+  "who said to you, His Mother, “Woman, behold thy son”, and to John “Behold thy Mother”",
+  "who cried out upon the cross: “My God, my God, why hast Thou forsaken Me?”",
+  "who said “I thirst”, and after having tasted the vinegar offered to Him said “It is consummated”",
+  "who at the ninth hour cried out “Father, into Thy hands I commend my spirit”",
+  "who for us, poor sinners, suffered a cruel and painful death. Alleluia.",
+  "whose side was pierced with a spear and from whose Sacred Heart Blood and Water poured out for the forgiveness of our sins",
+  "whose sacred body was taken down from the cross and lovingly received in your arms"
+];
+
+const M_CLAUSES = [
+  "whose body was wrapped in a shroud and laid in the tomb by holy men",
+  "whose tomb was sealed and guarded by Pilate’s soldiers",
+  "whose holy soul descended into Hell to preach the good news and conduct the holy patriarchs to Heaven",
+  "who rose from the dead on the third day, filling you with ineffable joy",
+  "who after His Resurrection appeared frequently to His disciples and friends to strengthen their faith",
+  "who, before you and His apostles, ascended into Heaven on the fortieth day and was seated at the right hand of the Father",
+  "who, as He had promised, sent the Holy Spirit to you and to His apostles on the day of Pentecost",
+  "who was taken up into heaven, body and soul, and assumed to the glory of the Father", // Placeholder for 8
+  "who was crowned by the Father as Queen of Heaven and Earth", // Placeholder for 9
+  "who shall come again in glory to judge the living and the dead" // Placeholder for 10
 ];
 
 const rawBeads: BeadData[] = [
@@ -187,10 +215,30 @@ const rawBeads: BeadData[] = [
     image: nativityImg
   },
   ...generateDecade('I', 'The Passion of the Lord', nativityImg, I_CLAUSES),
-  { id: 'J1', type: 'large', label: 'J1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
-  ...generateDecade('K', 'The Fourth Decade', nativityImg),
-  { id: 'L1', type: 'large', label: 'L1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
-  ...generateDecade('M', 'The Fifth Decade', nativityImg),
+  {
+    id: 'J1',
+    type: 'large',
+    label: 'J1',
+    prayer: {
+      title: 'Doxology & Transition',
+      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
+      subtext: 'The Fourth Decade (His Crucifixion)'
+    },
+    image: crucifixionArt
+  },
+  ...generateDecade('K', 'His Crucifixion', crucifixionArt, K_CLAUSES),
+  {
+    id: 'L1',
+    type: 'large',
+    label: 'L1',
+    prayer: {
+      title: 'Doxology & Transition',
+      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
+      subtext: 'The Fifth Decade (His Resurrection)'
+    },
+    image: ascensionArt
+  },
+  ...generateDecade('M', 'His Resurrection', ascensionArt, M_CLAUSES),
   {
     id: 'N1',
     type: 'medal',
