@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { RosaryBead } from './RosaryBead';
 import { rosaryBeads } from '@/lib/rosary-data';
@@ -11,6 +11,7 @@ interface RosaryStripProps {
 export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadClick }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const beadRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   // Auto-scroll to keep active bead centered
   useEffect(() => {
@@ -32,8 +33,39 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
     }
   }, [currentIndex]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientY);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    
+    const touchEnd = e.changedTouches[0].clientY;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(distance) > minSwipeDistance) {
+      if (distance > 0) {
+        // Swiped up -> Next bead
+        if (currentIndex < rosaryBeads.length - 1) {
+          onBeadClick(currentIndex + 1);
+        }
+      } else {
+        // Swiped down -> Previous bead
+        if (currentIndex > 0) {
+          onBeadClick(currentIndex - 1);
+        }
+      }
+    }
+    setTouchStart(null);
+  };
+
   return (
-    <div className="h-full w-full bg-[#fdfbf7] dark:bg-[#1a1816] border-l border-stone-200 dark:border-stone-800 relative overflow-hidden">
+    <div 
+      className="h-full w-full bg-[#fdfbf7] dark:bg-[#1a1816] border-l border-stone-200 dark:border-stone-800 relative overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Background Texture */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-multiply pointer-events-none z-0" />
       
