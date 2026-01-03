@@ -28,7 +28,7 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
 
   if (isChain) {
     return (
-      <div className="h-6 w-[1px] bg-stone-400/50 mx-auto my-0" />
+      <div className="h-4 w-[1px] bg-stone-400/50 mx-auto my-0" />
     );
   }
 
@@ -43,12 +43,12 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
           "w-12 h-16 flex items-center justify-center relative",
           activeStyle
         )}>
-          {/* Simple Cross Graphic */}
+          {/* Christian Cross Graphic */}
           <div className="absolute w-8 h-1.5 bg-stone-600 rounded-full" />
-          <div className="absolute w-1.5 h-12 bg-stone-600 rounded-full" />
+          <div className="absolute w-1.5 h-14 bg-stone-600 rounded-full" />
           {/* Subtle Metallic Effect */}
           <div className="absolute w-8 h-1.5 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
-          <div className="absolute w-1.5 h-12 bg-gradient-to-b from-transparent via-white/20 to-transparent rounded-full" />
+          <div className="absolute w-1.5 h-14 bg-gradient-to-b from-transparent via-white/20 to-transparent rounded-full" />
         </div>
       )}
 

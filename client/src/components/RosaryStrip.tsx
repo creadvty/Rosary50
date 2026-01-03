@@ -46,7 +46,7 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
         className="h-full overflow-y-auto rosary-scroll py-[50vh] px-4 scroll-smooth relative z-10"
         style={{ scrollSnapType: 'y mandatory' }}
       >
-        <div className="flex flex-col items-center gap-8"> {/* Increased gap for "around 5 beads" feel */}
+        <div className="flex flex-col items-center gap-2"> {/* Reduced gap for tighter chain look */}
           {rosaryBeads.map((bead, index) => (
             <div 
               key={`${bead.id}-${index}`}
