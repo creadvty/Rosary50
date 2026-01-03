@@ -17,10 +17,24 @@ export default function Home() {
       // Since index 0 is N1 (top) and index N is Crucifix (bottom), advancing means DECREASING the index.
       if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'ArrowRight') {
         e.preventDefault();
-        setCurrentBeadIndex(prev => Math.max(prev - 1, 0));
+        setCurrentBeadIndex(prev => {
+          const nextIndex = Math.max(prev - 1, 0);
+          // If we are at cross (last index) and next is chain (lastIndex - 1), skip chain to A1 (lastIndex - 2)
+          if (prev === rosaryBeads.length - 1 && rosaryBeads[prev - 1].type === 'chain') {
+            return rosaryBeads.length - 3;
+          }
+          return nextIndex;
+        });
       } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
         e.preventDefault();
-        setCurrentBeadIndex(prev => Math.min(prev + 1, rosaryBeads.length - 1));
+        setCurrentBeadIndex(prev => {
+          const nextIndex = Math.min(prev + 1, rosaryBeads.length - 1);
+          // If we are at A1 (lastIndex - 2) and previous is chain (lastIndex - 1), skip chain to cross (lastIndex)
+          if (prev === rosaryBeads.length - 3 && rosaryBeads[prev + 1].type === 'chain') {
+            return rosaryBeads.length - 1;
+          }
+          return nextIndex;
+        });
       }
     };
 
