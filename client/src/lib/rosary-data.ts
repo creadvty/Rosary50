@@ -158,7 +158,7 @@ const rawBeads: BeadData[] = [
     type: 'cross',
     label: '',
     prayer: {
-      title: 'Carthusian Rosary with 50 Meditations',
+      title: 'Carthusian Rosary with 50 Mysteries',
       body: 'Let us meditate on the life of our Lord Jesus Christ and our Blessed Mother.'
     },
     image: sacredHeartImg
