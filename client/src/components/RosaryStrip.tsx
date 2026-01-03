@@ -50,7 +50,6 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
           {rosaryBeads.map((bead, index) => {
             const nextBead = rosaryBeads[index + 1];
             // Determine spacing based on bead types
-            // If current and next are both small (MHM), use tighter spacing
             const isMHMtoMHM = bead.type === 'small' && nextBead?.type === 'small';
             
             return (
@@ -63,6 +62,7 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
                   type={bead.type}
                   label={bead.label}
                   image={bead.image}
+                  stripIcon={bead.stripIcon} // Pass the specific strip icon
                   isActive={currentIndex === index}
                   onClick={() => onBeadClick(index)}
                 />
@@ -79,7 +79,6 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
   );
 };
 
-// Helper for class merging if not imported
 function cn(...inputs: any[]) {
   return inputs.filter(Boolean).join(" ");
 }

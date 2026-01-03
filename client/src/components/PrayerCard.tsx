@@ -10,7 +10,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
   const isMHM = bead.prayer.body.includes("Hail Mary, full of grace");
 
   return (
-    <div className="h-full flex flex-col items-center justify-center p-8 max-w-3xl mx-auto text-center relative z-10">
+    <div className="h-full flex flex-col items-center p-8 pt-16 max-w-3xl mx-auto text-center relative z-10 overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={bead.id}
@@ -18,12 +18,12 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex flex-col items-center space-y-8 w-full"
+          className="flex flex-col items-center w-full h-full"
         >
-          {/* Prayer Section */}
-          <div className="space-y-6 w-full">
+          {/* Prayer Section - Scrollable */}
+          <div className="flex-1 w-full overflow-y-auto pr-2 custom-scrollbar space-y-6 pb-8">
             <motion.h2 
-              className="text-sm uppercase tracking-[0.2em] text-primary font-sans font-semibold"
+              className="text-sm uppercase tracking-[0.2em] text-primary font-sans font-semibold sticky top-0 bg-background/80 backdrop-blur-sm py-2 z-20"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -39,7 +39,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
                 </p>
               ) : (
                 <div className="space-y-6">
-                  <p className="text-xl md:text-2xl leading-relaxed text-primary font-serif font-medium">
+                  <p className="text-xl md:text-2xl leading-relaxed text-primary font-serif font-medium whitespace-pre-line">
                     {bead.prayer.body}
                   </p>
                   {bead.prayer.subtext && (
@@ -59,12 +59,9 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
             </div>
           </div>
 
-          {/* Spacer */}
-          <div className="flex-1 min-h-[2rem]" />
-
-          {/* Artwork Section */}
+          {/* Artwork Section - Fixed height at bottom */}
           <motion.div 
-            className="w-full max-w-md aspect-[3/4] rounded-t-full relative overflow-hidden shadow-2xl border-4 border-white/50 dark:border-white/10"
+            className="w-full max-w-[280px] md:max-w-md aspect-[3/4] rounded-t-full relative overflow-hidden shadow-2xl border-4 border-white/50 dark:border-white/10 shrink-0 mt-4 mb-8"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}

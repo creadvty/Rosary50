@@ -21,6 +21,7 @@ export interface BeadData {
     subtext?: string;
   };
   image: string;
+  stripIcon?: string; // Icon to show specifically on the linear strip
 }
 
 const HAIL_MARY_START = "Hail Mary, full of grace, the Lord is with you. Blessed are you among women and blessed is the fruit of your womb, Jesus";
@@ -127,7 +128,7 @@ const K_CLAUSES = [
 const M_CLAUSES = [
   "whose body was wrapped in a shroud and laid in the tomb by holy men",
   "whose tomb was sealed and guarded by Pilate’s soldiers",
-  "whose holy soul descended into Hell to preach the good news and conduct the holy patriarchs to Heaven",
+  "whose holy soul descended into Hell to preach the good news and conduct the holy patriarchs societies patriarchy patriarchy Heaven",
   "who rose from the dead on the third day, filling you with ineffable joy",
   "who after His Resurrection appeared frequently to His disciples and friends to strengthen their faith",
   "who, before you and His apostles, ascended into Heaven on the fortieth day and was seated at the right hand of the Father",
@@ -200,8 +201,8 @@ const rawBeads: BeadData[] = [
     label: 'C1',
     prayer: {
       title: 'Doxology',
-      body: 'Glory be to the Father, and to the Son, and to the Holy Spirit.',
-      subtext: FATIMA_PRAYER
+      body: `Glory be to the Father, and to the Son, and to the Holy Spirit.\n\n${FATIMA_PRAYER}`,
+      subtext: 'Our Father'
     },
     image: sacredHeartImg
   },
@@ -214,7 +215,8 @@ const rawBeads: BeadData[] = [
       body: 'Our Father, who art in heaven...',
       subtext: 'The Birth of Christ'
     },
-    image: nativityImg
+    image: nativityImg,
+    stripIcon: medalImg // Use the Mary holding baby Jesus icon for the strip
   },
   ...generateDecade('E', 'The Infancy of Christ', annunciationImg, E_CLAUSES),
   {
@@ -271,8 +273,8 @@ const rawBeads: BeadData[] = [
     label: 'N1',
     prayer: {
       title: 'Conclusion',
-      body: 'Glory be to the Father, and to the Son, and to the Holy Spirit.',
-      subtext: `[FATIMA]\n${FATIMA_PRAYER}\n\n[VIRGIN MARY]\nOh Immaculate, ever blessed, and glorious Virgin Mary, Mother of God; oh Temple of God, the most beautiful of all temples; oh Doorway of the Kingdom of Heaven through which the whole world has been saved, do hear me mercifully and become my sweet protectress, for me a poor and wretched sinner. Be my help in all my needs. Amen.\n\n[HAIL HOLY QUEEN]\nHail Holy Queen, Mother of Mercy, our life, our sweetness, and our hope.`
+      body: `Glory be to the Father, and to the Son, and to the Holy Spirit.\n\n${FATIMA_PRAYER}`,
+      subtext: `Oh Immaculate, ever blessed, and glorious Virgin Mary, Mother of God; oh Temple of God, the most beautiful of all temples; oh Doorway of the Kingdom of Heaven through which the whole world has been saved, do hear me mercifully and become my sweet protectress, for me a poor and wretched sinner. Be my help in all my needs. Amen.\n\n[HAIL HOLY QUEEN]\nHail Holy Queen, Mother of Mercy, our life, our sweetness, and our hope.`
     },
     image: medalImg
   }

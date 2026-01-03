@@ -8,10 +8,11 @@ interface RosaryBeadProps {
   isActive: boolean;
   label: string;
   image?: string;
+  stripIcon?: string; // New prop for specific strip icon
   onClick: () => void;
 }
 
-export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, image, onClick }) => {
+export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, image, stripIcon, onClick }) => {
   const isCross = type === 'cross';
   const isMedal = type === 'medal';
   const isChain = type === 'chain';
@@ -31,6 +32,9 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
       <div className="h-4 w-[1px] bg-stone-400/50 mx-auto my-0" />
     );
   }
+
+  // Use stripIcon if provided, otherwise fallback to image
+  const displayIcon = stripIcon || image;
 
   return (
     <motion.div 
@@ -65,8 +69,8 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
           "w-14 h-16 bg-[#C5A028] rounded-full border-2 border-[#D4AF37]/50 shadow-xl flex items-center justify-center overflow-hidden",
           activeStyle
         )}>
-          {image ? (
-             <img src={image} alt="Medal" className="absolute inset-0 w-full h-full object-cover opacity-90 scale-150" />
+          {displayIcon ? (
+             <img src={displayIcon} alt="Medal" className="absolute inset-0 w-full h-full object-cover opacity-90 scale-150" />
           ) : (
              <div className="text-[10px] text-amber-100 font-serif">M</div>
           )}
