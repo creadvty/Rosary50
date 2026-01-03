@@ -20,7 +20,29 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
       // Cancel any ongoing speech
       window.speechSynthesis.cancel();
 
-      const textToRead = `${bead.prayer.title}. ${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
+      // For transition beads (F1, H1, J1, L1), the decade title is in bead.prayer.subtext
+      // The user wants it read AFTER the Fatima Prayer (which is at the end of bead.prayer.body)
+      // and BEFORE the Our Father (which is also at the end of bead.prayer.body in my current data)
+      // Actually, looking at rosary-data, body is "Glory Be... Fatima... Our Father"
+      // and subtext is "The Youth...". 
+      // User request: "read aloud the title of the decade after the Fatima Prayer and before the Our Father."
+      
+      let textToRead = "";
+      if (['F1', 'H1', 'J1', 'L1'].includes(bead.id)) {
+        // Find indices to split the body
+        const body = bead.prayer.body;
+        const fatimaEndIndex = body.indexOf("Your Mercy.");
+        if (fatimaEndIndex !== -1) {
+          const beforeFatimaEnd = body.substring(0, fatimaEndIndex + 11);
+          const afterFatimaEnd = body.substring(fatimaEndIndex + 11);
+          textToRead = `${bead.prayer.title}. ${beforeFatimaEnd}. ${bead.prayer.subtext}. ${afterFatimaEnd}`;
+        } else {
+          textToRead = `${bead.prayer.title}. ${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
+        }
+      } else {
+        textToRead = `${bead.prayer.title}. ${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
+      }
+
       const utterance = new SpeechSynthesisUtterance(textToRead);
       utterance.rate = 0.9; // Slightly slower for contemplative pace
       speechRef.current = utterance;
