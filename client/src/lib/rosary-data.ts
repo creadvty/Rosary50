@@ -201,7 +201,6 @@ const rawBeads: BeadData[] = [
     prayer: {
       title: 'Doxology',
       body: `Glory be to the Father, and to the Son, and to the Holy Spirit.\n\n${FATIMA_PRAYER}`,
-      subtext: 'Our Father'
     },
     image: sacredHeartImg
   },
