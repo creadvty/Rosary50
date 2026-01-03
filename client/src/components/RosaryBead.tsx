@@ -48,13 +48,14 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
           
           <div className="relative flex flex-col items-center">
             {/* Horizontal Bar */}
-            <div className="absolute top-4 w-10 h-2 bg-stone-700 rounded-full shadow-md" />
+            <div className="absolute top-4 w-10 h-2 bg-amber-600 rounded-full shadow-md" />
             {/* Vertical Bar */}
-            <div className="w-2 h-16 bg-stone-700 rounded-full shadow-md" />
+            <div className="w-2 h-16 bg-amber-600 rounded-full shadow-md" />
             
-            {/* Highlights for metallic look */}
-            <div className="absolute top-4 w-10 h-1 bg-white/10 rounded-full" />
-            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-16 bg-white/10 rounded-full" />
+            {/* Highlights for gold look */}
+            <div className="absolute top-4 w-10 h-1 bg-white/30 rounded-full" />
+            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-16 bg-white/30 rounded-full" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent rounded-full pointer-events-none" />
           </div>
         </div>
       )}

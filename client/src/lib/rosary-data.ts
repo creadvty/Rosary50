@@ -7,6 +7,7 @@ import crucifixionArt from '@assets/generated_images/the_crucifixion_of_jesus_ch
 import ascensionArt from '@assets/generated_images/the_ascension_of_jesus_christ.png';
 import baptismArt from '@assets/generated_images/the_baptism_of_jesus_christ_in_the_jordan.png';
 import pilateArt from '@assets/generated_images/jesus_christ_before_pontius_pilate.png';
+import sacredHeartImg from '@assets/generated_images/sacred_heart_of_jesus_and_mary.png';
 
 export type BeadType = 'cross' | 'medal' | 'small' | 'large' | 'chain';
 
@@ -146,9 +147,9 @@ const rawBeads: BeadData[] = [
       body: 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
       subtext: 'Apostles Creed'
     },
-    image: metalCrucifixImg
+    image: sacredHeartImg
   },
-  { id: 'chain-1', type: 'chain', label: '', prayer: { title: '', body: '' }, image: metalCrucifixImg },
+  { id: 'chain-1', type: 'chain', label: '', prayer: { title: '', body: '' }, image: sacredHeartImg },
   {
     id: 'A1',
     type: 'large',
@@ -158,7 +159,7 @@ const rawBeads: BeadData[] = [
       body: CREED,
       subtext: 'Our Father'
     },
-    image: metalCrucifixImg
+    image: sacredHeartImg
   },
   {
     id: 'B1',
@@ -169,7 +170,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: 'source of our salvation'
     },
-    image: metalCrucifixImg
+    image: sacredHeartImg
   },
   {
     id: 'B2',
@@ -180,7 +181,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: 'lover of the soul'
     },
-    image: metalCrucifixImg
+    image: sacredHeartImg
   },
   {
     id: 'B3',
@@ -191,7 +192,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: 'hope of nations'
     },
-    image: metalCrucifixImg
+    image: sacredHeartImg
   },
   {
     id: 'C1',
@@ -202,7 +203,7 @@ const rawBeads: BeadData[] = [
       body: 'Glory be to the Father, and to the Son, and to the Holy Spirit.',
       subtext: FATIMA_PRAYER
     },
-    image: metalCrucifixImg
+    image: sacredHeartImg
   },
   {
     id: 'D1',
