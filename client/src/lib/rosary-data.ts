@@ -227,7 +227,7 @@ const rawBeads: BeadData[] = [
     },
     image: baptismArt
   },
-  ...generateDecade('G', 'The Youth and Public Ministry', nativityImg, G_CLAUSES),
+  ...generateDecade('G', 'The Youth and Public Ministry', baptismArt, G_CLAUSES),
   {
     id: 'H1',
     type: 'large',
@@ -239,7 +239,7 @@ const rawBeads: BeadData[] = [
     },
     image: pilateArt
   },
-  ...generateDecade('I', 'The Passion of the Lord', nativityImg, I_CLAUSES),
+  ...generateDecade('I', 'The Passion of the Lord', pilateArt, I_CLAUSES),
   {
     id: 'J1',
     type: 'large',
