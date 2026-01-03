@@ -1,8 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BeadData } from '@/lib/rosary-data';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import { 
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 interface PrayerCardProps {
   bead: BeadData;
@@ -14,6 +23,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
   const isMHM = bead.prayer.body.includes("Hail Mary, full of grace");
   const isCross = bead.type === 'cross';
   const speechRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const [showInfo, setShowInfo] = useState(false);
 
   useEffect(() => {
     if (isReadAloud) {
@@ -84,20 +94,32 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
             </motion.h2>
 
             {isCross && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex items-center justify-center gap-3 mb-8 pb-4 border-b border-primary/10"
-              >
-                <Switch 
-                  id="read-aloud" 
-                  checked={isReadAloud} 
-                  onCheckedChange={onReadAloudToggle}
-                />
-                <Label htmlFor="read-aloud" className="text-sm font-sans font-medium text-primary/70 uppercase tracking-widest cursor-pointer">
-                  Read Aloud
-                </Label>
-              </motion.div>
+              <div className="flex flex-col items-center gap-6 mb-8">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex items-center justify-center gap-3 pb-4 border-b border-primary/10"
+                >
+                  <Switch 
+                    id="read-aloud" 
+                    checked={isReadAloud} 
+                    onCheckedChange={onReadAloudToggle}
+                  />
+                  <Label htmlFor="read-aloud" className="text-sm font-sans font-medium text-primary/70 uppercase tracking-widest cursor-pointer">
+                    Read Aloud
+                  </Label>
+                </motion.div>
+
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  onClick={() => setShowInfo(true)}
+                  className="text-primary/60 hover:text-primary transition-colors font-serif italic text-sm underline underline-offset-4"
+                >
+                  What is the Carthusian Rosary?
+                </motion.button>
+              </div>
             )}
             
             <div className="space-y-4">
@@ -145,6 +167,25 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
           </motion.div>
         </motion.div>
       </AnimatePresence>
+
+      <AlertDialog open={showInfo} onOpenChange={setShowInfo}>
+        <AlertDialogContent className="bg-[#fdfbf7] border-stone-200">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="font-serif text-2xl text-primary">The Carthusian Rosary</AlertDialogTitle>
+            <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
+              The Rosary is a meditation, not mechanical repetition. The Carthusian Rosary focuses on Christ, just as our Blessed Mother did, by expanding each Hail Mary with a prayerful reflection after the name of Jesus. Highly recommended by St. Louis de Montfort and Pope St. John Paul II.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction 
+              onClick={() => setShowInfo(false)}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-sans uppercase tracking-widest"
+            >
+              OK
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
