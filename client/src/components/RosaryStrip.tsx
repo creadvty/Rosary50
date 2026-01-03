@@ -46,22 +46,29 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
         className="h-full overflow-y-auto rosary-scroll py-[50vh] px-4 scroll-smooth relative z-10"
         style={{ scrollSnapType: 'y mandatory' }}
       >
-        <div className="flex flex-col items-center gap-2"> {/* Reduced gap for tighter chain look */}
-          {rosaryBeads.map((bead, index) => (
-            <div 
-              key={`${bead.id}-${index}`}
-              ref={(el) => { beadRefs.current[index] = el; }}
-              className="scroll-snap-center"
-            >
-              <RosaryBead
-                type={bead.type}
-                label={bead.label}
-                image={bead.image} /* Pass image for Cross/Medal */
-                isActive={currentIndex === index}
-                onClick={() => onBeadClick(index)}
-              />
-            </div>
-          ))}
+        <div className="flex flex-col items-center">
+          {rosaryBeads.map((bead, index) => {
+            const nextBead = rosaryBeads[index + 1];
+            // Determine spacing based on bead types
+            // If current and next are both small (MHM), use tighter spacing
+            const isMHMtoMHM = bead.type === 'small' && nextBead?.type === 'small';
+            
+            return (
+              <div 
+                key={`${bead.id}-${index}`}
+                ref={(el) => { beadRefs.current[index] = el; }}
+                className={cn("scroll-snap-center flex flex-col items-center", isMHMtoMHM ? "mb-2" : "mb-10")}
+              >
+                <RosaryBead
+                  type={bead.type}
+                  label={bead.label}
+                  image={bead.image}
+                  isActive={currentIndex === index}
+                  onClick={() => onBeadClick(index)}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
       
@@ -71,3 +78,8 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
     </div>
   );
 };
+
+// Helper for class merging if not imported
+function cn(...inputs: any[]) {
+  return inputs.filter(Boolean).join(" ");
+}
