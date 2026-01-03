@@ -216,7 +216,7 @@ const rawBeads: BeadData[] = [
       subtext: 'The Birth of Christ'
     },
     image: nativityImg,
-    stripIcon: medalImg // Use the Mary holding baby Jesus icon for the strip
+    stripIcon: medalImg 
   },
   ...generateDecade('E', 'The Infancy of Christ', annunciationImg, E_CLAUSES),
   {
@@ -274,9 +274,10 @@ const rawBeads: BeadData[] = [
     prayer: {
       title: 'Conclusion',
       body: `Glory be to the Father, and to the Son, and to the Holy Spirit.\n\n${FATIMA_PRAYER}`,
-      subtext: `Oh Immaculate, ever blessed, and glorious Virgin Mary, Mother of God; oh Temple of God, the most beautiful of all temples; oh Doorway of the Kingdom of Heaven through which the whole world has been saved, do hear me mercifully and become my sweet protectress, for me a poor and wretched sinner. Be my help in all my needs. Amen.\n\n[HAIL HOLY QUEEN]\nHail Holy Queen, Mother of Mercy, our life, our sweetness, and our hope.`
+      subtext: `Oh Immaculate, ever blessed, and glorious Virgin Mary, Mother of God; oh Temple of God, the most beautiful of all temples; oh Doorway of the Kingdom of Heaven through which the whole world has been saved, do hear me mercifully and become my sweet protectress, for me a poor and wretched sinner. Be my help in all my needs. Amen.\n\nHail, holy Queen, mother of mercy, our life, our sweetness, and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs mourning and weeping in this valley of tears. Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile show us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary. Pray for us, O Holy Mother of God. That we may be made worthy of the promises of Christ.\n\nLet us pray. O God, whose only begotten Son, by His life, death, and resurrection, has purchased for us the rewards of eternal salvation. Grant, we beseech Thee, that while meditating on these mysteries of the most holy Rosary of the Blessed Virgin Mary, that we may both imitate what they contain and obtain what they promise, through Christ our Lord. Amen.\n\nMost Sacred Heart of Jesus, have mercy on us.\nImmaculate Heart of Mary, pray for us.`
     },
-    image: medalImg
+    image: sacredHeartImg,
+    stripIcon: medalImg
   }
 ];
 
