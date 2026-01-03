@@ -18,6 +18,7 @@ export interface BeadData {
 }
 
 const HAIL_MARY_START = "Hail Mary, full of grace, the Lord is with you. Blessed are you among women and blessed is the fruit of your womb, Jesus";
+const FATIMA_PRAYER = "O my Jesus, forgive us our sins, save us from the fires of hell, and lead all souls to Heaven, especially those in most need of Your Mercy.";
 
 const generateDecade = (
   prefix: string, 
@@ -26,8 +27,6 @@ const generateDecade = (
   clauses: string[] = []
 ): BeadData[] => {
   const beads: BeadData[] = [];
-  
-  // Decade Beads
   for (let i = 1; i <= 10; i++) {
     const clause = clauses[i-1] || `[Mystery Clause ${i}]`;
     beads.push({
@@ -42,7 +41,6 @@ const generateDecade = (
       image: mysteryImage
     });
   }
-  
   return beads;
 };
 
@@ -59,10 +57,33 @@ const E_CLAUSES = [
   "with whom you fled into Egypt as directed by the angel, to avoid Herod’s persecution"
 ];
 
-// Re-defining the list to ensure logical prayer order matches the array index, 
-// while the visual order (Crucifix at bottom) is handled by the data structure.
+const G_CLAUSES = [
+  "with whom you returned home after seven years, when directed by the angel",
+  "left in Jerusalem when He was twelve years old, and found in the Temple after three days",
+  "who each day grew further in wisdom and grace before God and man",
+  "whom John baptised in the Jordan and called the Lamb of God",
+  "who fasted forty days in the desert and overcame the temptations put to Him by Satan",
+  "who called the disciples and proclaimed the kingdom of God",
+  "who healed the sick, freed the possessed, and raised the dead to life",
+  "whose feet Mary Magdalene washed with her tears, dried with her hair, and anointed with her perfume",
+  "who was transfigured on Mt. Tabor in the presence of Peter, James, and John",
+  "who raised Lazarus to life after he had been dead for four days"
+];
+
+const I_CLAUSES = [
+  "who was welcomed as the Messiah as He entered Jerusalem on Palm Sunday",
+  "who at the Last Supper instituted the sacrament of the Most Holy Eucharist",
+  "who prayed in agony in the garden of Gethsemane",
+  "who, betrayed by Judas and abandoned by His friends, willingly placed Himself in the hands of His captors",
+  "who, captured and roughly bound, was before the high priest",
+  "who was denied three times by Simon Peter and was falsely accused, mocked, beaten, and spat upon by the crowd",
+  "who was scourged at the pillar on orders given by Pilate",
+  "who was wrapped in a purple robe, crowned with thorns, and hailed as king by mocking soldiers",
+  "who before Caiaphas and Pilate was condemned to a wicked death",
+  "who was given the burden of the cross to bear like a criminal to the hill of Golgotha"
+];
+
 const rawBeads: BeadData[] = [
-  // Crucifix (Start)
   {
     id: 'crucifix',
     type: 'cross',
@@ -74,15 +95,7 @@ const rawBeads: BeadData[] = [
     },
     image: crucifixImg
   },
-  // Chain
-  {
-    id: 'chain-1',
-    type: 'chain',
-    label: '',
-    prayer: { title: '', body: '' },
-    image: crucifixImg
-  },
-  // A1
+  { id: 'chain-1', type: 'chain', label: '', prayer: { title: '', body: '' }, image: crucifixImg },
   {
     id: 'A1',
     type: 'large',
@@ -94,7 +107,6 @@ const rawBeads: BeadData[] = [
     },
     image: crucifixImg
   },
-  // B1-B3
   {
     id: 'B1',
     type: 'small',
@@ -128,7 +140,6 @@ const rawBeads: BeadData[] = [
     },
     image: crucifixImg
   },
-  // C1
   {
     id: 'C1',
     type: 'large',
@@ -136,11 +147,10 @@ const rawBeads: BeadData[] = [
     prayer: {
       title: 'Doxology',
       body: 'Glory be to the Father, and to the Son, and to the Holy Spirit.',
-      subtext: 'O my Jesus, forgive us our sins, save us from the fires of hell...'
+      subtext: FATIMA_PRAYER
     },
     image: crucifixImg
   },
-  // D1 (Medal)
   {
     id: 'D1',
     type: 'medal',
@@ -152,27 +162,35 @@ const rawBeads: BeadData[] = [
     },
     image: medalImg
   },
-  // E1-E10
   ...generateDecade('E', 'The Infancy of Christ', annunciationImg, E_CLAUSES),
-  // F1
   {
     id: 'F1',
     type: 'large',
     label: 'F1',
     prayer: {
-      title: 'Doxology',
-      body: 'Glory be to the Father, and to the Son, and to the Holy Spirit.',
+      title: 'Doxology & Transition',
+      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
+      subtext: 'The Second Decade (Youth and Public Ministry)'
     },
     image: nativityImg
   },
-  ...generateDecade('G', 'The Second Decade', nativityImg),
-  { id: 'H1', type: 'large', label: 'H1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
-  ...generateDecade('I', 'The Third Decade', nativityImg),
+  ...generateDecade('G', 'The Youth and Public Ministry', nativityImg, G_CLAUSES),
+  {
+    id: 'H1',
+    type: 'large',
+    label: 'H1',
+    prayer: {
+      title: 'Doxology & Transition',
+      body: `Glory be to the Father... ${FATIMA_PRAYER} Our Father...`,
+      subtext: 'The Third Decade (The Passion of the Lord)'
+    },
+    image: nativityImg
+  },
+  ...generateDecade('I', 'The Passion of the Lord', nativityImg, I_CLAUSES),
   { id: 'J1', type: 'large', label: 'J1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
   ...generateDecade('K', 'The Fourth Decade', nativityImg),
   { id: 'L1', type: 'large', label: 'L1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
   ...generateDecade('M', 'The Fifth Decade', nativityImg),
-  // N1 Medal
   {
     id: 'N1',
     type: 'medal',
@@ -186,6 +204,4 @@ const rawBeads: BeadData[] = [
   }
 ];
 
-// The "opposite direction" means the Crucifix is at the bottom, and the rosary extends upwards.
-// Array index 0 (Crucifix) should be at the bottom of the visual list.
 export const rosaryBeads: BeadData[] = [...rawBeads].reverse();
