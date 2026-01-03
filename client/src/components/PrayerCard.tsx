@@ -7,6 +7,8 @@ interface PrayerCardProps {
 }
 
 export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
+  const isMHM = bead.prayer.body.includes("Hail Mary, full of grace");
+
   return (
     <div className="h-full flex flex-col items-center justify-center p-8 max-w-3xl mx-auto text-center relative z-10">
       <AnimatePresence mode="wait">
@@ -30,21 +32,29 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
             </motion.h2>
             
             <div className="space-y-4">
-              <p className="text-2xl md:text-3xl font-body leading-relaxed text-foreground/90">
-                {bead.prayer.body}
-              </p>
-              
-              {bead.prayer.subtext && (
-                <motion.div 
-                  className="mt-6 p-4 border-t border-b border-primary/20 bg-primary/5"
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <p className="text-xl md:text-2xl font-serif italic text-primary font-medium">
-                    + {bead.prayer.subtext}
+              {isMHM ? (
+                <p className="text-2xl md:text-3xl font-body leading-relaxed">
+                  <span className="text-foreground/50">{bead.prayer.body}, </span>
+                  <span className="text-foreground font-medium">{bead.prayer.subtext}</span>
+                </p>
+              ) : (
+                <>
+                  <p className="text-2xl md:text-3xl font-body leading-relaxed text-foreground/90">
+                    {bead.prayer.body}
                   </p>
-                </motion.div>
+                  {bead.prayer.subtext && (
+                    <motion.div 
+                      className="mt-6 p-4 border-t border-b border-primary/20 bg-primary/5"
+                      initial={{ scale: 0.95, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <p className="text-xl md:text-2xl font-serif italic text-primary font-medium">
+                        {bead.prayer.subtext}
+                      </p>
+                    </motion.div>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -59,14 +69,12 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <div className="absolute inset-0 bg-black/20 z-10" /> {/* Slight overlay for atmosphere */}
+            <div className="absolute inset-0 bg-black/20 z-10" />
             <img 
               src={bead.image} 
               alt={bead.prayer.title}
               className="w-full h-full object-cover"
             />
-            
-            {/* Texture Overlay */}
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none z-20" />
           </motion.div>
         </motion.div>
