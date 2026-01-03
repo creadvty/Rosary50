@@ -155,7 +155,7 @@ const rawBeads: BeadData[] = [
     type: 'large',
     label: 'A1',
     prayer: {
-      title: 'Opening prayer',
+      title: "Apostles' Creed",
       body: CREED,
       subtext: 'Our Father'
     },
