@@ -41,6 +41,9 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
         } else {
           textToRead = `${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
         }
+      } else if (isMHM) {
+        // For MHM beads, only read the body and subtext (clause)
+        textToRead = `${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
       } else {
         textToRead = `${bead.prayer.title}. ${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
       }
