@@ -95,20 +95,6 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
 
             {isCross && (
               <div className="flex flex-col items-center gap-6 mb-8">
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="flex items-center justify-center gap-3 pb-4 border-b border-primary/10"
-                >
-                  <Switch 
-                    id="read-aloud" 
-                    checked={isReadAloud} 
-                    onCheckedChange={onReadAloudToggle}
-                  />
-                  <Label htmlFor="read-aloud" className="text-sm font-sans font-medium text-primary/70 uppercase tracking-widest cursor-pointer">
-                    Read Aloud
-                  </Label>
-                </motion.div>
               </div>
             )}
             
@@ -124,15 +110,32 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
                     {bead.prayer.body}
                   </p>
                   {isCross && (
-                    <motion.button
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      onClick={() => setShowInfo(true)}
-                      className="text-primary/60 hover:text-primary transition-colors font-serif italic text-lg underline underline-offset-4 py-4"
-                    >
-                      What is the Carthusian Rosary?
-                    </motion.button>
+                    <div className="flex flex-col items-center gap-4 py-4">
+                      <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="flex items-center justify-center gap-3 pb-4 border-b border-primary/10"
+                      >
+                        <Switch 
+                          id="read-aloud" 
+                          checked={isReadAloud} 
+                          onCheckedChange={onReadAloudToggle}
+                        />
+                        <Label htmlFor="read-aloud" className="text-sm font-sans font-medium text-primary/70 uppercase tracking-widest cursor-pointer">
+                          Read Aloud
+                        </Label>
+                      </motion.div>
+
+                      <motion.button
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                        onClick={() => setShowInfo(true)}
+                        className="text-primary/60 hover:text-primary transition-colors font-serif italic text-lg underline underline-offset-4"
+                      >
+                        What is the Carthusian Rosary?
+                      </motion.button>
+                    </div>
                   )}
                   {bead.prayer.subtext && (
                     <motion.div 
