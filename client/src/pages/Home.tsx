@@ -18,10 +18,19 @@ export default function Home() {
     return rosaryBeads.length - 1;
   });
 
+  const [isReadAloud, setIsReadAloud] = useState(() => {
+    const saved = localStorage.getItem('rosary_read_aloud');
+    return saved === 'true';
+  });
+
   // Save progress whenever index changes
   useEffect(() => {
     localStorage.setItem('rosary_bead_index', currentBeadIndex.toString());
   }, [currentBeadIndex]);
+
+  useEffect(() => {
+    localStorage.setItem('rosary_read_aloud', isReadAloud.toString());
+  }, [isReadAloud]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -66,7 +75,11 @@ export default function Home() {
            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-40 mix-blend-overlay" />
         </div>
 
-        <PrayerCard bead={currentBead} />
+        <PrayerCard 
+          bead={currentBead} 
+          isReadAloud={isReadAloud} 
+          onReadAloudToggle={setIsReadAloud}
+        />
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/50 text-sm animate-pulse flex flex-col items-center gap-2">
           <span>Swipe Down or use Arrow Down to Advance</span>
