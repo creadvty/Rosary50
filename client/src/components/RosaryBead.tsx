@@ -48,21 +48,21 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
           
           <div className="relative flex flex-col items-center">
             {/* Horizontal Bar */}
-            <div className="absolute top-4 w-10 h-2 bg-amber-600 rounded-full shadow-md" />
+            <div className="absolute top-4 w-10 h-2 bg-[#D4AF37] rounded-full shadow-md" />
             {/* Vertical Bar */}
-            <div className="w-2 h-16 bg-amber-600 rounded-full shadow-md" />
+            <div className="w-2 h-16 bg-[#D4AF37] rounded-full shadow-md" />
             
-            {/* Highlights for gold look */}
-            <div className="absolute top-4 w-10 h-1 bg-white/30 rounded-full" />
-            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-16 bg-white/30 rounded-full" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent rounded-full pointer-events-none" />
+            {/* Highlights for 18k gold look */}
+            <div className="absolute top-4 w-10 h-1 bg-white/20 rounded-full blur-[1px]" />
+            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-16 bg-white/20 rounded-full blur-[1px]" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full pointer-events-none" />
           </div>
         </div>
       )}
 
       {isMedal && (
         <div className={cn(
-          "w-14 h-16 bg-amber-700 rounded-full border-2 border-amber-500/50 shadow-xl flex items-center justify-center overflow-hidden",
+          "w-14 h-16 bg-[#C5A028] rounded-full border-2 border-[#D4AF37]/50 shadow-xl flex items-center justify-center overflow-hidden",
           activeStyle
         )}>
           {image ? (
@@ -70,19 +70,19 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
           ) : (
              <div className="text-[10px] text-amber-100 font-serif">M</div>
           )}
-          <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] ring-1 ring-inset ring-white/10" />
+          <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.3)] ring-1 ring-inset ring-white/10" />
         </div>
       )}
 
       {isLarge && (
         <div className={cn(
           beadBase,
-          "w-10 h-10 bg-amber-600 border border-amber-400 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 shadow-amber-900/20",
+          "w-10 h-10 bg-[#C5A028] border border-[#D4AF37] bg-gradient-to-br from-[#E6C65A] via-[#C5A028] to-[#997A1F] shadow-amber-900/10",
           activeStyle
         )}>
-          {/* Gold texture effect */}
-          <div className="w-full h-full rounded-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent rounded-full pointer-events-none" />
+          {/* 18k gold texture effect */}
+          <div className="w-full h-full rounded-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent rounded-full pointer-events-none" />
         </div>
       )}
 

@@ -214,7 +214,7 @@ const rawBeads: BeadData[] = [
       body: 'Our Father, who art in heaven...',
       subtext: 'The Birth of Christ'
     },
-    image: medalImg
+    image: nativityImg
   },
   ...generateDecade('E', 'The Infancy of Christ', annunciationImg, E_CLAUSES),
   {
