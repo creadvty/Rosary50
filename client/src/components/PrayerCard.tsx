@@ -62,7 +62,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
 
           {/* Artwork Section - Fixed height at bottom */}
           <motion.div 
-            className="w-full max-w-[280px] md:max-w-md aspect-[3/4] rounded-t-full relative overflow-hidden shadow-2xl border-4 border-white/50 dark:border-white/10 shrink-0 mt-4 mb-8"
+            className="w-full max-w-[200px] md:max-w-xs aspect-[3/4] rounded-t-full relative overflow-hidden shadow-2xl border-4 border-white/50 dark:border-white/10 shrink-0 mt-4 mb-8"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
