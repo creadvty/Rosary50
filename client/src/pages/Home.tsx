@@ -36,17 +36,15 @@ export default function Home() {
            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-40 mix-blend-overlay" />
         </div>
 
-        {/* Top Header - Only visible at the cross position */}
-        {currentBeadIndex === rosaryBeads.length - 1 && (
-          <div className="absolute top-8 left-1/2 -translate-x-1/2 text-center z-20 pointer-events-none">
-            <h1 className="text-sm uppercase tracking-[0.3em] text-primary/60 font-sans font-bold mb-2">
-              Carthusian Rosary with 50 Meditations
-            </h1>
-            <p className="text-xs italic text-primary/40 font-serif">
-              Let us meditate on the life of Jesus and Mary...
-            </p>
-          </div>
-        )}
+        {/* Top Header */}
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 text-center z-20 pointer-events-none">
+          <h1 className="text-sm uppercase tracking-[0.3em] text-primary/60 font-sans font-bold mb-2">
+            Carthusian Rosary with 50 Meditations
+          </h1>
+          <p className="text-xs italic text-primary/40 font-serif">
+            Let us meditate on the life of Jesus and Mary...
+          </p>
+        </div>
 
         <PrayerCard bead={currentBead} />
 
