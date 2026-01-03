@@ -1,0 +1,16 @@
+{
+  "name": "Carthusian Rosary",
+  "short_name": "Rosary",
+  "description": "A contemplative virtual rosary application in the Carthusian tradition.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfbf7",
+  "theme_color": "#fdfbf7",
+  "icons": [
+    {
+      "src": "https://grainy-gradients.vercel.app/noise.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

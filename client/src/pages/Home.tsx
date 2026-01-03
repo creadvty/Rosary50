@@ -6,9 +6,22 @@ import { ArrowDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  // Start at the last index because we reversed the array to put the crucifix at the bottom.
-  // Last index is now the Crucifix.
-  const [currentBeadIndex, setCurrentBeadIndex] = useState(rosaryBeads.length - 1);
+  // Start at the saved index or default to the last index (Crucifix)
+  const [currentBeadIndex, setCurrentBeadIndex] = useState(() => {
+    const saved = localStorage.getItem('rosary_bead_index');
+    if (saved !== null) {
+      const parsed = parseInt(saved, 10);
+      if (!isNaN(parsed) && parsed >= 0 && parsed < rosaryBeads.length) {
+        return parsed;
+      }
+    }
+    return rosaryBeads.length - 1;
+  });
+
+  // Save progress whenever index changes
+  useEffect(() => {
+    localStorage.setItem('rosary_bead_index', currentBeadIndex.toString());
+  }, [currentBeadIndex]);
 
   // Handle keyboard navigation
   useEffect(() => {
