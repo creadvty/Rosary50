@@ -8,6 +8,7 @@ interface PrayerCardProps {
 
 export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
   const isMHM = bead.prayer.body.includes("Hail Mary, full of grace");
+  const isCross = bead.type === 'cross';
 
   return (
     <div className="h-full flex flex-col items-center p-8 pt-16 max-w-3xl mx-auto text-center relative z-10 overflow-hidden">
@@ -28,7 +29,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              {bead.label} — {bead.prayer.title}
+              {isCross ? bead.prayer.title : `${bead.label} — ${bead.prayer.title}`}
             </motion.h2>
             
             <div className="space-y-4">

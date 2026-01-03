@@ -142,11 +142,10 @@ const rawBeads: BeadData[] = [
   {
     id: 'crucifix',
     type: 'cross',
-    label: 'Cross',
+    label: '',
     prayer: {
       title: 'Carthusian Rosary with 50 Meditations',
-      body: 'Let us meditate on the life of our Lord Jesus Christ and his Blessed Mother.',
-      subtext: 'Apostles Creed'
+      body: 'Let us meditate on the life of our Lord Jesus Christ and our Blessed Mother.'
     },
     image: sacredHeartImg
   },
