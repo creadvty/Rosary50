@@ -45,9 +45,9 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
     const minSwipeDistance = 50;
 
     if (Math.abs(distance) > minSwipeDistance) {
-      if (distance > 0) {
-        // Swiped up -> Advance (Next bead)
-        // Note: advancing means decreasing index in this reversed array
+      if (distance < 0) {
+        // Swiped DOWN -> Advance (Next bead)
+        // Since rosaryBeads is [Crucifix, ..., N1], advancing means DECREASING the index.
         if (currentIndex > 0) {
           // If we are at cross (last index) and next is chain (lastIndex - 1), skip to A1 (lastIndex - 2)
           if (currentIndex === rosaryBeads.length - 1 && rosaryBeads[currentIndex - 1].type === 'chain') {
@@ -57,7 +57,8 @@ export const RosaryStrip: React.FC<RosaryStripProps> = ({ currentIndex, onBeadCl
           }
         }
       } else {
-        // Swiped down -> Go back (Previous bead)
+        // Swiped UP -> Go back (Previous bead)
+        // Going back means INCREASING the index toward the Crucifix.
         if (currentIndex < rosaryBeads.length - 1) {
           // If we are at A1 (lastIndex - 2) and next is chain (lastIndex - 1), skip to Cross (lastIndex)
           if (currentIndex === rosaryBeads.length - 3 && rosaryBeads[currentIndex + 1].type === 'chain') {
