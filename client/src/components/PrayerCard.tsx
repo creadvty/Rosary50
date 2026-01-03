@@ -109,16 +109,6 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
                     Read Aloud
                   </Label>
                 </motion.div>
-
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  onClick={() => setShowInfo(true)}
-                  className="text-primary/60 hover:text-primary transition-colors font-serif italic text-sm underline underline-offset-4"
-                >
-                  What is the Carthusian Rosary?
-                </motion.button>
               </div>
             )}
             
@@ -133,6 +123,17 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
                   <p className="text-xl md:text-2xl leading-relaxed text-primary font-serif font-medium whitespace-pre-line">
                     {bead.prayer.body}
                   </p>
+                  {isCross && (
+                    <motion.button
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                      onClick={() => setShowInfo(true)}
+                      className="text-primary/60 hover:text-primary transition-colors font-serif italic text-lg underline underline-offset-4 py-4"
+                    >
+                      What is the Carthusian Rosary?
+                    </motion.button>
+                  )}
                   {bead.prayer.subtext && (
                     <motion.div 
                       className="mt-6 p-4 border-t border-b border-primary/20 bg-primary/5"
