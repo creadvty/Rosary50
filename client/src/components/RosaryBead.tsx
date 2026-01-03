@@ -69,17 +69,19 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
       {isLarge && (
         <div className={cn(
           beadBase,
-          "w-10 h-10 bg-stone-800 border border-stone-600 bg-gradient-to-br from-stone-700 via-stone-800 to-stone-950",
+          "w-10 h-10 bg-amber-600 border border-amber-400 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 shadow-amber-900/20",
           activeStyle
         )}>
+          {/* Gold texture effect */}
           <div className="w-full h-full rounded-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent rounded-full pointer-events-none" />
         </div>
       )}
 
       {isSmall && (
         <div className={cn(
           beadBase,
-          "w-6 h-6 bg-stone-300 border border-stone-400 bg-gradient-to-br from-stone-100 via-stone-300 to-stone-400 shadow-sm",
+          "w-8 h-8 bg-stone-300 border border-stone-400 bg-gradient-to-br from-stone-100 via-stone-300 to-stone-400 shadow-sm",
           activeStyle
         )}>
            <div className="w-2 h-2 rounded-full bg-white/40 blur-[1px] absolute top-1 left-1" />
