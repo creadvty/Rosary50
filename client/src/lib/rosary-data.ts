@@ -26,6 +26,20 @@ export interface BeadData {
 
 const HAIL_MARY_START = "Hail Mary, full of grace, the Lord is with you. Blessed are you among women and blessed is the fruit of your womb, Jesus";
 const FATIMA_PRAYER = "O my Jesus, forgive us our sins, save us from the fires of hell, and lead all souls to Heaven, especially those in most need of Your Mercy.";
+const OUR_FATHER = `Our Father, Who art in heaven, 
+Hallowed be Thy Name. 
+Thy Kingdom come. 
+Thy Will be done, 
+on earth as it is in Heaven.
+
+Give us this day our daily bread. 
+And forgive us our trespasses, 
+as we forgive those who trespass against us. 
+And lead us not into the test, 
+but deliver us from evil. Amen.`;
+
+const GLORY_BE = "Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.";
+
 const CREED = `I believe in God,
 the Father almighty,
 Creator of heaven and earth,
@@ -157,7 +171,7 @@ const rawBeads: BeadData[] = [
     prayer: {
       title: "Apostles' Creed",
       body: CREED,
-      subtext: 'Our Father'
+      subtext: OUR_FATHER
     },
     image: sacredHeartImg
   },
@@ -200,7 +214,7 @@ const rawBeads: BeadData[] = [
     label: 'C1',
     prayer: {
       title: 'Doxology',
-      body: `Glory be to the Father, and to the Son, and to the Holy Spirit.\n\n${FATIMA_PRAYER}`,
+      body: `${GLORY_BE}\n\n${FATIMA_PRAYER}`,
     },
     image: sacredHeartImg
   },
@@ -210,7 +224,7 @@ const rawBeads: BeadData[] = [
     label: 'D1',
     prayer: {
       title: 'The First Decade (The Birth of Christ)',
-      body: 'Our Father, who art in heaven...',
+      body: OUR_FATHER,
       subtext: 'The Birth of Christ'
     },
     image: nativityImg,
@@ -223,7 +237,7 @@ const rawBeads: BeadData[] = [
     label: 'F1',
     prayer: {
       title: 'Second Decade (Youth and Public Ministry)',
-      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      body: `${GLORY_BE}\n\n${FATIMA_PRAYER}\n\n${OUR_FATHER}`,
       subtext: 'The Youth and Public Ministry'
     },
     image: baptismArt
@@ -235,7 +249,7 @@ const rawBeads: BeadData[] = [
     label: 'H1',
     prayer: {
       title: 'The Third Decade (The Passion of the Lord)',
-      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      body: `${GLORY_BE}\n\n${FATIMA_PRAYER}\n\n${OUR_FATHER}`,
       subtext: 'The Passion of the Lord'
     },
     image: pilateArt
@@ -247,7 +261,7 @@ const rawBeads: BeadData[] = [
     label: 'J1',
     prayer: {
       title: 'The Fourth Decade (His Crucifixion)',
-      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      body: `${GLORY_BE}\n\n${FATIMA_PRAYER}\n\n${OUR_FATHER}`,
       subtext: 'His Crucifixion'
     },
     image: crucifixionArt
@@ -259,7 +273,7 @@ const rawBeads: BeadData[] = [
     label: 'L1',
     prayer: {
       title: 'The Fifth Decade (His Resurrection)',
-      body: `Glory be to the Father...\n\n${FATIMA_PRAYER}\n\nOur Father...`,
+      body: `${GLORY_BE}\n\n${FATIMA_PRAYER}\n\n${OUR_FATHER}`,
       subtext: 'His Resurrection'
     },
     image: ascensionArt
@@ -271,7 +285,7 @@ const rawBeads: BeadData[] = [
     label: 'N1',
     prayer: {
       title: 'Conclusion',
-      body: `Glory be to the Father, and to the Son, and to the Holy Spirit.\n\n${FATIMA_PRAYER}`,
+      body: `${GLORY_BE}\n\n${FATIMA_PRAYER}`,
       subtext: `Oh Immaculate, ever blessed, and glorious Virgin Mary, Mother of God; oh Temple of God, the most beautiful of all temples; oh Doorway of the Kingdom of Heaven through which the whole world has been saved, do hear me mercifully and become my sweet protectress, for me a poor and wretched sinner. Be my help in all my needs. Amen.\n\nHail, holy Queen, mother of mercy, our life, our sweetness, and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs mourning and weeping in this valley of tears. Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile show us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary. Pray for us, O Holy Mother of God. That we may be made worthy of the promises of Christ.\n\nLet us pray. O God, whose only begotten Son, by His life, death, and resurrection, has purchased for us the rewards of eternal salvation. Grant, we beseech Thee, that while meditating on these mysteries of the most holy Rosary of the Blessed Virgin Mary, that we may both imitate what they contain and obtain what they promise, through Christ our Lord. Amen.\n\nMost Sacred Heart of Jesus, have mercy on us.\nImmaculate Heart of Mary, pray for us.`
     },
     image: sacredHeartImg,
