@@ -38,7 +38,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
                   <span className="text-primary">{bead.prayer.subtext}</span>
                 </p>
               ) : (
-                <>
+                <div className="space-y-6">
                   <p className="text-xl md:text-2xl leading-relaxed text-primary font-serif font-medium">
                     {bead.prayer.body}
                   </p>
@@ -49,12 +49,12 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
-                      <p className="text-xl md:text-2xl text-primary font-serif italic font-medium">
+                      <div className="text-xl md:text-2xl text-primary font-serif font-medium space-y-4 whitespace-pre-line">
                         {bead.prayer.subtext}
-                      </p>
+                      </div>
                     </motion.div>
                   )}
-                </>
+                </div>
               )}
             </div>
           </div>

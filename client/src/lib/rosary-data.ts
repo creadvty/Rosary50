@@ -106,9 +106,9 @@ const M_CLAUSES = [
   "who after His Resurrection appeared frequently to His disciples and friends to strengthen their faith",
   "who, before you and His apostles, ascended into Heaven on the fortieth day and was seated at the right hand of the Father",
   "who, as He had promised, sent the Holy Spirit to you and to His apostles on the day of Pentecost",
-  "who was taken up into heaven, body and soul, and assumed to the glory of the Father", // Placeholder for 8
-  "who was crowned by the Father as Queen of Heaven and Earth", // Placeholder for 9
-  "who shall come again in glory to judge the living and the dead" // Placeholder for 10
+  "who finally called you, His Mother, to Himself, seating you at His right hand and crowning you with glory as Queen of Heaven",
+  "who wants to call us, His servants and yours, to Himself after this life and through your intercession, we pray, receive us into the joy of His Father’s Kingdom",
+  "who with the Father and the Holy Spirit, and with you most Holy Mother, reigns triumphant and glorious forever"
 ];
 
 const rawBeads: BeadData[] = [
@@ -245,8 +245,8 @@ const rawBeads: BeadData[] = [
     label: 'N1',
     prayer: {
       title: 'Conclusion',
-      body: 'Hail, Holy Queen, Mother of Mercy...',
-      subtext: 'Final Prayers'
+      body: 'Glory be to the Father, and to the Son, and to the Holy Spirit.',
+      subtext: `[FATIMA]\n${FATIMA_PRAYER}\n\n[VIRGIN MARY]\nOh Immaculate, ever blessed, and glorious Virgin Mary, Mother of God; oh Temple of God, the most beautiful of all temples; oh Doorway of the Kingdom of Heaven through which the whole world has been saved, do hear me mercifully and become my sweet protectress, for me a poor and wretched sinner. Be my help in all my needs. Amen.\n\n[HAIL HOLY QUEEN]\nHail Holy Queen, Mother of Mercy, our life, our sweetness, and our hope.`
     },
     image: medalImg
   }
