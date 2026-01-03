@@ -27,10 +27,6 @@ const generateDecade = (
 ): BeadData[] => {
   const beads: BeadData[] = [];
   
-  // Large Bead (Our Father / Mystery Intro)
-  // For the first decade (D1), the user specified it separately.
-  // For subsequent decades, usually the single bead preceding acts as the Our Father/Glory Be transition.
-  
   // Decade Beads
   for (let i = 1; i <= 10; i++) {
     const clause = clauses[i-1] || `[Mystery Clause ${i}]`;
@@ -50,7 +46,6 @@ const generateDecade = (
   return beads;
 };
 
-// Clauses for Decade 1 (E1-E10)
 const E_CLAUSES = [
   "conceived in you by the Holy Spirit during the annunciation of the angel",
   "with whom you visited Saint Elisabeth in the hill country, and whom John the Baptist recognized while yet in his mother’s womb",
@@ -64,8 +59,10 @@ const E_CLAUSES = [
   "with whom you fled into Egypt as directed by the angel, to avoid Herod’s persecution"
 ];
 
-export const rosaryBeads: BeadData[] = [
-  // Crucifix
+// Re-defining the list to ensure logical prayer order matches the array index, 
+// while the visual order (Crucifix at bottom) is handled by the data structure.
+const rawBeads: BeadData[] = [
+  // Crucifix (Start)
   {
     id: 'crucifix',
     type: 'cross',
@@ -77,7 +74,7 @@ export const rosaryBeads: BeadData[] = [
     },
     image: crucifixImg
   },
-  // Chain/Spacer
+  // Chain
   {
     id: 'chain-1',
     type: 'chain',
@@ -157,7 +154,6 @@ export const rosaryBeads: BeadData[] = [
   },
   // E1-E10
   ...generateDecade('E', 'The Infancy of Christ', annunciationImg, E_CLAUSES),
-  
   // F1
   {
     id: 'F1',
@@ -169,20 +165,13 @@ export const rosaryBeads: BeadData[] = [
     },
     image: nativityImg
   },
-  
-  // Placeholder for G-M sections as text wasn't provided, 
-  // but structure is needed for visualization.
   ...generateDecade('G', 'The Second Decade', nativityImg),
   { id: 'H1', type: 'large', label: 'H1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
-  
   ...generateDecade('I', 'The Third Decade', nativityImg),
   { id: 'J1', type: 'large', label: 'J1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
-  
   ...generateDecade('K', 'The Fourth Decade', nativityImg),
   { id: 'L1', type: 'large', label: 'L1', prayer: { title: 'Doxology', body: 'Glory Be...' }, image: nativityImg },
-  
   ...generateDecade('M', 'The Fifth Decade', nativityImg),
-  
   // N1 Medal
   {
     id: 'N1',
@@ -196,3 +185,7 @@ export const rosaryBeads: BeadData[] = [
     image: medalImg
   }
 ];
+
+// The "opposite direction" means the Crucifix is at the bottom, and the rosary extends upwards.
+// Array index 0 (Crucifix) should be at the bottom of the visual list.
+export const rosaryBeads: BeadData[] = [...rawBeads].reverse();

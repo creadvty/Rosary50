@@ -6,18 +6,21 @@ import { ArrowDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  const [currentBeadIndex, setCurrentBeadIndex] = useState(0);
-  const [showIntro, setShowIntro] = useState(true);
+  // Start at the last index because we reversed the array to put the crucifix at the bottom.
+  // Last index is now the Crucifix.
+  const [currentBeadIndex, setCurrentBeadIndex] = useState(rosaryBeads.length - 1);
 
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        setCurrentBeadIndex(prev => Math.min(prev + 1, rosaryBeads.length - 1));
-      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      // Swiping DOWN (ArrowDown) advances the prayer (moves from Crucifix UP towards the end).
+      // Since index 0 is N1 (top) and index N is Crucifix (bottom), advancing means DECREASING the index.
+      if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'ArrowRight') {
         e.preventDefault();
         setCurrentBeadIndex(prev => Math.max(prev - 1, 0));
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setCurrentBeadIndex(prev => Math.min(prev + 1, rosaryBeads.length - 1));
       }
     };
 
@@ -25,19 +28,12 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Handle scroll wheel on the main area to advance beads
-  const handleWheel = (e: React.WheelEvent) => {
-    // Debounce or threshold could be added here for smoother experience
-    // For now, let's keep it simple: strict bead interaction or click
-  };
-  
   const currentBead = rosaryBeads[currentBeadIndex];
 
   return (
     <div className="flex h-screen w-full bg-background overflow-hidden font-sans">
       {/* Left 75%: Prayer & Art */}
       <main className="w-3/4 h-full relative flex flex-col overflow-hidden">
-        {/* Ambient Background */}
         <div className="absolute inset-0 opacity-30 pointer-events-none">
            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-40 mix-blend-overlay" />
@@ -45,9 +41,8 @@ export default function Home() {
 
         <PrayerCard bead={currentBead} />
 
-        {/* Navigation Hint */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/50 text-sm animate-pulse flex flex-col items-center gap-2">
-          <span>Scroll or use Arrow Keys</span>
+          <span>Swipe Down or use Arrow Down to Advance</span>
           <ArrowDown className="w-4 h-4" />
         </div>
       </main>
