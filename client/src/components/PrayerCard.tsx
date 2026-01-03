@@ -33,13 +33,13 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
             
             <div className="space-y-4">
               {isMHM ? (
-                <p className="text-2xl md:text-3xl font-body leading-relaxed">
-                  <span className="text-foreground/50">{bead.prayer.body}, </span>
-                  <span className="text-foreground font-medium">{bead.prayer.subtext}</span>
+                <p className="text-sm uppercase tracking-[0.2em] leading-relaxed font-sans font-semibold">
+                  <span className="text-primary/50">{bead.prayer.body}, </span>
+                  <span className="text-primary">{bead.prayer.subtext}</span>
                 </p>
               ) : (
                 <>
-                  <p className="text-2xl md:text-3xl font-body leading-relaxed text-foreground/90">
+                  <p className="text-sm uppercase tracking-[0.2em] leading-relaxed text-primary font-sans font-semibold">
                     {bead.prayer.body}
                   </p>
                   {bead.prayer.subtext && (
@@ -49,7 +49,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead }) => {
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
-                      <p className="text-xl md:text-2xl font-serif italic text-primary font-medium">
+                      <p className="text-sm uppercase tracking-[0.2em] text-primary font-sans font-semibold italic">
                         {bead.prayer.subtext}
                       </p>
                     </motion.div>
