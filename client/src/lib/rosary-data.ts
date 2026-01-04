@@ -142,7 +142,7 @@ const K_CLAUSES = [
 const M_CLAUSES = [
   "whose body was wrapped in a shroud and laid in the tomb by holy men",
   "whose tomb was sealed and guarded by Pilate’s soldiers",
-  "whose holy soul descended into Hell to preach the good news and conduct the holy patriarchs societies patriarchy patriarchy Heaven",
+  "whose holy soul descended into Hell to preach the good news and conduct the holy patriarchs to Heaven",
   "who rose from the dead on the third day, filling you with ineffable joy",
   "who after His Resurrection appeared frequently to His disciples and friends to strengthen their faith",
   "who, before you and His apostles, ascended into Heaven on the fortieth day and was seated at the right hand of the Father",
