@@ -200,7 +200,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
           <AlertDialogHeader>
             <AlertDialogTitle className="font-serif text-2xl text-primary">The Carthusian Rosary</AlertDialogTitle>
             <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
-              The Rosary is a meditation, not mechanical repetition. The Carthusian Rosary focuses on Christ, just as our Blessed Mother did, by expanding each Hail Mary with a prayerful reflection after the name of Jesus. Highly recommended by St. Louis de Montfort and Pope St. John Paul II.
+              Before the Rosary had 15 mysteries, it had 50 unique mysteries. Now you too can pray these mysteries, focused on Jesus, as our Blessed Mother was. Highly recommended by St. Louis de Montfort and St. John Paul II.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
