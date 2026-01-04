@@ -9,6 +9,17 @@ import baptismArt from '@assets/generated_images/the_baptism_of_jesus_christ_in_
 import pilateArt from '@assets/generated_images/jesus_christ_before_pontius_pilate.png';
 import sacredHeartImg from '@assets/generated_images/sacred_heart_of_jesus_and_mary.png';
 
+import jesusEnteringJerusalem from '@assets/generated_images/jesus_entering_jerusalem_on_palm_sunday.png';
+import lastSupper from '@assets/generated_images/the_last_supper_of_jesus_christ.png';
+import agonyGethsemane from '@assets/generated_images/jesus_christ_in_agony_in_the_garden_of_gethsemane.png';
+import betrayalJudas from '@assets/generated_images/the_betrayal_of_jesus_by_judas.png';
+import jesusBeforeCaiaphas from '@assets/generated_images/jesus_christ_bound_before_the_high_priest.png';
+import peterDenial from '@assets/generated_images/the_denial_of_peter_and_mockery_of_jesus.png';
+import scourgingArt from '@assets/generated_images/the_scourging_of_jesus_at_the_pillar.png';
+import crowningThorns from '@assets/generated_images/the_crowning_with_thorns_of_jesus_christ.png';
+import pilateCondemnation from '@assets/generated_images/jesus_christ_condemned_to_death_by_pilate.png';
+import carryingCross from '@assets/generated_images/jesus_christ_carrying_the_heavy_cross.png';
+
 export type BeadType = 'cross' | 'medal' | 'small' | 'large' | 'chain';
 
 export interface BeadData {
@@ -254,7 +265,116 @@ const rawBeads: BeadData[] = [
     },
     image: pilateArt
   },
-  ...generateDecade('I', 'The Passion of the Lord', pilateArt, I_CLAUSES),
+  {
+    id: 'I1',
+    type: 'small',
+    label: 'I1',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[0]
+    },
+    image: jesusEnteringJerusalem
+  },
+  {
+    id: 'I2',
+    type: 'small',
+    label: 'I2',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[1]
+    },
+    image: lastSupper
+  },
+  {
+    id: 'I3',
+    type: 'small',
+    label: 'I3',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[2]
+    },
+    image: agonyGethsemane
+  },
+  {
+    id: 'I4',
+    type: 'small',
+    label: 'I4',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[3]
+    },
+    image: betrayalJudas
+  },
+  {
+    id: 'I5',
+    type: 'small',
+    label: 'I5',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[4]
+    },
+    image: jesusBeforeCaiaphas
+  },
+  {
+    id: 'I6',
+    type: 'small',
+    label: 'I6',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[5]
+    },
+    image: peterDenial
+  },
+  {
+    id: 'I7',
+    type: 'small',
+    label: 'I7',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[6]
+    },
+    image: scourgingArt
+  },
+  {
+    id: 'I8',
+    type: 'small',
+    label: 'I8',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[7]
+    },
+    image: crowningThorns
+  },
+  {
+    id: 'I9',
+    type: 'small',
+    label: 'I9',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[8]
+    },
+    image: pilateCondemnation
+  },
+  {
+    id: 'I10',
+    type: 'small',
+    label: 'I10',
+    prayer: {
+      title: 'The Passion of the Lord',
+      body: HAIL_MARY_START,
+      subtext: I_CLAUSES[9]
+    },
+    image: carryingCross
+  },
   {
     id: 'J1',
     type: 'large',
