@@ -104,68 +104,68 @@ const generateDecade = (
 };
 
 const E_CLAUSES = [
-  "conceived in you by the Holy Spirit during the annunciation of the angel",
-  "with whom you visited Saint Elisabeth in the hill country, and whom John the Baptist recognized while yet in his mother’s womb",
-  "to whom you, perpetually virgin in body and soul, gave birth with joy",
-  "whom you wrapped in swaddling clothes and laid in a manger",
-  "whose birth the angels celebrated singing “Glory to God in the highest; and on earth peace to men of good will”, and whom the shepherds visited in Bethlehem",
-  "who was circumcised on the eighth day and given the name which is above every other name",
-  "who was sought for and worshiped by the Magi",
-  "whom you carried to the Temple and presented to God, His Father",
-  "who was lovingly received in the arms of old Simeon, and recognised by the holy prophetess, Anna",
-  "with whom you fled into Egypt as directed by the angel, to avoid Herod’s persecution"
+  "conceived in you by the Holy Spirit during the annunciation of the angel.",
+  "with whom you visited Saint Elisabeth in the hill country, and whom John the Baptist recognized while yet in his mother’s womb.",
+  "to whom you, perpetually virgin in body and soul, gave birth with joy.",
+  "whom you wrapped in swaddling clothes and laid in a manger.",
+  "whose birth the angels celebrated singing “Glory to God in the highest; and on earth peace to men of good will”, and whom the shepherds visited in Bethlehem.",
+  "who was circumcised on the eighth day and given the name which is above every other name.",
+  "who was sought for and worshiped by the Magi.",
+  "whom you carried to the Temple and presented to God, His Father.",
+  "who was lovingly received in the arms of old Simeon, and recognised by the holy prophetess, Anna.",
+  "with whom you fled into Egypt as directed by the angel, to avoid Herod’s persecution."
 ];
 
 const G_CLAUSES = [
-  "with whom you returned home after seven years, when directed by the angel",
-  "left in Jerusalem when He was twelve years old, and found in the Temple after three days",
-  "who each day grew further in wisdom and grace before God and man",
-  "whom John baptised in the Jordan and called the Lamb of God",
-  "who fasted forty days in the desert and overcame the temptations put to Him by Satan",
-  "who called the disciples and proclaimed the kingdom of God",
-  "who healed the sick, freed the possessed, and raised the dead to life",
-  "whose feet Mary Magdalene washed with her tears, dried with her hair, and anointed with her perfume",
-  "who was transfigured on Mt. Tabor in the presence of Peter, James, and John",
-  "who raised Lazarus to life after he had been dead for four days"
+  "with whom you returned home after seven years, when directed by the angel.",
+  "left in Jerusalem when He was twelve years old, and found in the Temple after three days.",
+  "who each day grew further in wisdom and grace before God and man.",
+  "whom John baptised in the Jordan and called the Lamb of God.",
+  "who fasted forty days in the desert and overcame the temptations put to Him by Satan.",
+  "who called the disciples and proclaimed the kingdom of God.",
+  "who healed the sick, freed the possessed, and raised the dead to life.",
+  "whose feet Mary Magdalene washed with her tears, dried with her hair, and anointed with her perfume.",
+  "who was transfigured on Mt. Tabor in the presence of Peter, James, and John.",
+  "who raised Lazarus to life after he had been dead for four days."
 ];
 
 const I_CLAUSES = [
-  "who was welcomed as the Messiah as He entered Jerusalem on Palm Sunday",
-  "who at the Last Supper instituted the sacrament of the Most Holy Eucharist",
-  "who prayed in agony in the garden of Gethsemane",
-  "who, betrayed by Judas and abandoned by His friends, willingly placed Himself in the hands of His captors",
-  "who, captured and roughly bound, was before the high priest",
-  "who was denied three times by Simon Peter and was falsely accused, mocked, beaten, and spat upon by the crowd",
-  "who was scourged at the pillar on orders given by Pilate",
-  "who was wrapped in a purple robe, crowned with thorns, and hailed as king by mocking soldiers",
-  "who before Caiaphas and Pilate was condemned to a wicked death",
-  "who was given the burden of the cross to bear like a criminal to the hill of Golgotha"
+  "who was welcomed as the Messiah as He entered Jerusalem on Palm Sunday.",
+  "who at the Last Supper instituted the sacrament of the Most Holy Eucharist.",
+  "who prayed in agony in the garden of Gethsemane.",
+  "who, betrayed by Judas and abandoned by His friends, willingly placed Himself in the hands of His captors.",
+  "who, captured and roughly bound, was before the high priest.",
+  "who was denied three times by Simon Peter and was falsely accused, mocked, beaten, and spat upon by the crowd.",
+  "who was scourged at the pillar on orders given by Pilate.",
+  "who was wrapped in a purple robe, crowned with thorns, and hailed as king by mocking soldiers.",
+  "who before Caiaphas and Pilate was condemned to a wicked death.",
+  "who was given the burden of the cross to bear like a criminal to the hill of Golgotha."
 ];
 
 const K_CLAUSES = [
-  "nailed to the cross beneath the inscription “This is the King of the Jews”",
-  "who prayed for His murderers, saying “Father, forgive them, for they know not what they do”",
-  "who said to the thief at His right “Amen I say to thee, this day thou shalt be with Me in paradise”",
-  "who said to you, His Mother, “Woman, behold thy son”, and to John “Behold thy Mother”",
-  "who cried out upon the cross: “My God, my God, why hast Thou forsaken Me?”",
-  "who said “I thirst”, and after having tasted the vinegar offered to Him said “It is consummated”",
-  "who at the ninth hour cried out “Father, into Thy hands I commend my spirit”",
+  "nailed to the cross beneath the inscription “This is the King of the Jews”.",
+  "who prayed for His murderers, saying “Father, forgive them, for they know not what they do”.",
+  "who said to the thief at His right “Amen I say to thee, this day thou shalt be with Me in paradise”.",
+  "who said to you, His Mother, “Woman, behold thy son”, and to John “Behold thy Mother”.",
+  "who cried out upon the cross: “My God, my God, why hast Thou forsaken Me?”.",
+  "who said “I thirst”, and after having tasted the vinegar offered to Him said “It is consummated”.",
+  "who at the ninth hour cried out “Father, into Thy hands I commend my spirit”.",
   "who for us, poor sinners, suffered a cruel and painful death. Alleluia.",
-  "whose side was pierced with a spear and from whose Sacred Heart Blood and Water poured out for the forgiveness of our sins",
-  "whose sacred body was taken down from the cross and lovingly received in your arms"
+  "whose side was pierced with a spear and from whose Sacred Heart Blood and Water poured out for the forgiveness of our sins.",
+  "whose sacred body was taken down from the cross and lovingly received in your arms."
 ];
 
 const M_CLAUSES = [
-  "whose body was wrapped in a shroud and laid in the tomb by holy men",
-  "whose tomb was sealed and guarded by Pilate’s soldiers",
-  "whose holy soul descended into Hell to preach the good news and conduct the holy patriarchs to Heaven",
-  "who rose from the dead on the third day, filling you with ineffable joy",
-  "who after His Resurrection appeared frequently to His disciples and friends to strengthen their faith",
-  "who, before you and His apostles, ascended into Heaven on the fortieth day and was seated at the right hand of the Father",
-  "who, as He had promised, sent the Holy Spirit to you and to His apostles on the day of Pentecost",
-  "who finally called you, His Mother, to Himself, seating you at His right hand and crowning you with glory as Queen of Heaven",
-  "who wants to call us, His servants and yours, to Himself after this life and through your intercession, we pray, receive us into the joy of His Father’s Kingdom",
-  "who with the Father and the Holy Spirit, and with you most Holy Mother, reigns triumphant and glorious forever"
+  "whose body was wrapped in a shroud and laid in the tomb by holy men.",
+  "whose tomb was sealed and guarded by Pilate’s soldiers.",
+  "whose holy soul descended into Hell to preach the good news and conduct the holy patriarchs to Heaven.",
+  "who rose from the dead on the third day, filling you with ineffable joy.",
+  "who after His Resurrection appeared frequently to His disciples and friends to strengthen their faith.",
+  "who, before you and His apostles, ascended into Heaven on the fortieth day and was seated at the right hand of the Father.",
+  "who, as He had promised, sent the Holy Spirit to you and to His apostles on the day of Pentecost.",
+  "who finally called you, His Mother, to Himself, seating you at His right hand and crowning you with glory as Queen of Heaven.",
+  "who wants to call us, His servants and yours, to Himself after this life and through your intercession, we pray, receive us into the joy of His Father’s Kingdom.",
+  "who with the Father and the Holy Spirit, and with you most Holy Mother, reigns triumphant and glorious forever."
 ];
 
 const rawBeads: BeadData[] = [
@@ -198,7 +198,7 @@ const rawBeads: BeadData[] = [
     prayer: {
       title: 'Faith',
       body: HAIL_MARY_START,
-      subtext: 'source of our salvation'
+      subtext: 'source of our salvation.'
     },
     image: sacredHeartImg
   },
@@ -209,7 +209,7 @@ const rawBeads: BeadData[] = [
     prayer: {
       title: 'Charity',
       body: HAIL_MARY_START,
-      subtext: 'lover of the soul'
+      subtext: 'lover of the soul.'
     },
     image: sacredHeartImg
   },
@@ -220,7 +220,7 @@ const rawBeads: BeadData[] = [
     prayer: {
       title: 'Hope',
       body: HAIL_MARY_START,
-      subtext: 'hope of nations'
+      subtext: 'hope of nations.'
     },
     image: sacredHeartImg
   },
