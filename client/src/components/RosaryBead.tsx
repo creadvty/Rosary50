@@ -44,25 +44,38 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
     >
       {isCross && (
         <div className={cn(
-          "w-12 h-16 flex flex-col items-center relative transition-all duration-500",
+          "relative flex flex-col items-center justify-center transition-all duration-500",
           isActive 
-            ? "scale-125 z-10 brightness-110 drop-shadow-[0_0_10px_rgba(212,175,55,0.6)]" 
-            : "opacity-60 scale-90 hover:opacity-100 hover:scale-100 brightness-90 saturate-50"
+            ? "scale-125 z-10 drop-shadow-[0_0_8px_rgba(212,175,55,0.6)]" 
+            : "opacity-60 scale-90 grayscale-[0.3] hover:opacity-100 hover:scale-100 hover:grayscale-0"
         )}>
-          {/* Connecting point to chain above */}
+          {/* Connector to chain */}
           <div className="w-[1px] h-2 bg-stone-400/50 absolute -top-2" />
-          
-          <div className="relative flex flex-col items-center">
-            {/* Horizontal Bar */}
-            <div className="absolute top-4 w-10 h-2 bg-[#D4AF37] rounded-full shadow-md" />
-            {/* Vertical Bar */}
-            <div className="w-2 h-16 bg-[#D4AF37] rounded-full shadow-md" />
+
+          {/* SVG Crucifix */}
+          <svg 
+            width="48" 
+            height="64" 
+            viewBox="0 0 24 32" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            className="overflow-visible"
+          >
+            {/* The Cross (Darker Gold) */}
+            <path 
+              d="M10.5 4C10.5 3.44772 10.9477 3 11.5 3H12.5C13.0523 3 13.5 3.44772 13.5 4V9H18.5C19.0523 9 19.5 9.44772 19.5 10V11C19.5 11.5523 19.0523 12 18.5 12H13.5V28C13.5 28.5523 13.0523 29 12.5 29H11.5C10.9477 29 10.5 28.5523 10.5 28V12H5.5C4.94772 12 4.5 11.5523 4.5 11V10C4.5 9.44772 4.94772 9 5.5 9H10.5V4Z" 
+              fill="#C5A028" 
+              stroke="#B8860B" 
+              strokeWidth="0.5"
+            />
             
-            {/* Highlights for 18k gold look */}
-            <div className="absolute top-4 w-10 h-1 bg-white/20 rounded-full blur-[1px]" />
-            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-16 bg-white/20 rounded-full blur-[1px]" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full pointer-events-none" />
-          </div>
+            {/* The Corpus / Body (Lighter/Brighter Gold) */}
+            <path 
+              d="M12 8C12.55 8 13 7.55 13 7C13 6.45 12.55 6 12 6C11.45 6 11 6.45 11 7C11 7.55 11.45 8 12 8ZM12 8.5C10.5 9.5 9 10.5 6 10V11C8.5 11.5 10.5 12 11.5 14V22L11 25H13L12.5 22V14C13.5 12 15.5 11.5 18 11V10C15 10.5 13.5 9.5 12 8.5Z" 
+              fill="#F9E076" 
+              className="drop-shadow-sm"
+            />
+          </svg>
         </div>
       )}
 
