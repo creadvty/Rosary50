@@ -19,6 +19,11 @@ import scourgingArt from '@assets/generated_images/the_scourging_of_jesus_at_the
 import crowningThorns from '@assets/generated_images/the_crowning_with_thorns_of_jesus_christ.png';
 import pilateCondemnation from '@assets/generated_images/jesus_christ_condemned_to_death_by_pilate.png';
 import carryingCross from '@assets/generated_images/jesus_christ_carrying_the_heavy_cross.png';
+import jesusSidePierced from '@assets/generated_images/side_of_jesus_pierced_with_a_spear.png';
+import descentFromCross from '@assets/generated_images/jesus_taken_down_from_the_cross.png';
+import ascensionNew from '@assets/generated_images/the_ascension_of_jesus_christ_into_heaven.png';
+import pentecostArt from '@assets/generated_images/pentecost_-_descent_of_the_holy_spirit.png';
+import coronationArt from '@assets/generated_images/the_coronation_of_the_virgin_mary.png';
 
 export type BeadType = 'cross' | 'medal' | 'small' | 'large' | 'chain';
 
@@ -386,7 +391,116 @@ const rawBeads: BeadData[] = [
     },
     image: crucifixionArt
   },
-  ...generateDecade('K', 'His Crucifixion', crucifixionArt, K_CLAUSES),
+  {
+    id: 'K1',
+    type: 'small',
+    label: 'K1',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[0]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K2',
+    type: 'small',
+    label: 'K2',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[1]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K3',
+    type: 'small',
+    label: 'K3',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[2]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K4',
+    type: 'small',
+    label: 'K4',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[3]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K5',
+    type: 'small',
+    label: 'K5',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[4]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K6',
+    type: 'small',
+    label: 'K6',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[5]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K7',
+    type: 'small',
+    label: 'K7',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[6]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K8',
+    type: 'small',
+    label: 'K8',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[7]
+    },
+    image: crucifixionArt
+  },
+  {
+    id: 'K9',
+    type: 'small',
+    label: 'K9',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[8]
+    },
+    image: jesusSidePierced
+  },
+  {
+    id: 'K10',
+    type: 'small',
+    label: 'K10',
+    prayer: {
+      title: 'His Crucifixion',
+      body: HAIL_MARY_START,
+      subtext: K_CLAUSES[9]
+    },
+    image: descentFromCross
+  },
   {
     id: 'L1',
     type: 'large',
@@ -398,7 +512,61 @@ const rawBeads: BeadData[] = [
     },
     image: ascensionArt
   },
-  ...generateDecade('M', 'His Resurrection', ascensionArt, M_CLAUSES),
+  {
+    id: 'M6',
+    type: 'small',
+    label: 'M6',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[5]
+    },
+    image: ascensionNew
+  },
+  {
+    id: 'M7',
+    type: 'small',
+    label: 'M7',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[6]
+    },
+    image: pentecostArt
+  },
+  {
+    id: 'M8',
+    type: 'small',
+    label: 'M8',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[7]
+    },
+    image: coronationArt
+  },
+  {
+    id: 'M9',
+    type: 'small',
+    label: 'M9',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[8]
+    },
+    image: ascensionArt
+  },
+  {
+    id: 'M10',
+    type: 'small',
+    label: 'M10',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[9]
+    },
+    image: ascensionArt
+  },
   {
     id: 'N1',
     type: 'medal',
