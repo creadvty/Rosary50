@@ -513,6 +513,61 @@ const rawBeads: BeadData[] = [
     image: ascensionArt
   },
   {
+    id: 'M1',
+    type: 'small',
+    label: 'M1',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[0]
+    },
+    image: ascensionArt
+  },
+  {
+    id: 'M2',
+    type: 'small',
+    label: 'M2',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[1]
+    },
+    image: ascensionArt
+  },
+  {
+    id: 'M3',
+    type: 'small',
+    label: 'M3',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[2]
+    },
+    image: ascensionArt
+  },
+  {
+    id: 'M4',
+    type: 'small',
+    label: 'M4',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[3]
+    },
+    image: ascensionArt
+  },
+  {
+    id: 'M5',
+    type: 'small',
+    label: 'M5',
+    prayer: {
+      title: 'His Resurrection',
+      body: HAIL_MARY_START,
+      subtext: M_CLAUSES[4]
+    },
+    image: ascensionArt
+  },
+  {
     id: 'M6',
     type: 'small',
     label: 'M6',
