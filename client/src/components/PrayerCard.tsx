@@ -200,7 +200,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
           <AlertDialogHeader>
             <AlertDialogTitle className="font-serif text-2xl text-primary">The Carthusian Rosary</AlertDialogTitle>
             <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
-              Before the Rosary had 15 mysteries, it had 50 unique mysteries. Now you too can pray these mysteries, focused on Jesus, as our Blessed Mother was. Highly recommended by St. Louis de Montfort and St. John Paul II.
+              Before the Rosary was simplified to 15 mysteries, it originally had 50 unique mysteries composed by Blessed Dominic of Prussia. Now you too can pray these 50 mysteries, focused on Jesus, as our Blessed Mother was. Highly recommended by St. Louis de Montfort and St. John Paul II.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
