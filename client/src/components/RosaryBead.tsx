@@ -44,8 +44,10 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
     >
       {isCross && (
         <div className={cn(
-          "w-12 h-16 flex flex-col items-center relative",
-          activeStyle
+          "w-12 h-16 flex flex-col items-center relative transition-all duration-500",
+          isActive 
+            ? "scale-125 z-10 brightness-110 drop-shadow-[0_0_10px_rgba(212,175,55,0.6)]" 
+            : "opacity-60 scale-90 hover:opacity-100 hover:scale-100 brightness-90 saturate-50"
         )}>
           {/* Connecting point to chain above */}
           <div className="w-[1px] h-2 bg-stone-400/50 absolute -top-2" />
