@@ -609,7 +609,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: M_CLAUSES[8]
     },
-    image: ascensionArt
+    image: coronationArt
   },
   {
     id: 'M10',
@@ -620,7 +620,7 @@ const rawBeads: BeadData[] = [
       body: HAIL_MARY_START,
       subtext: M_CLAUSES[9]
     },
-    image: ascensionArt
+    image: coronationArt
   },
   {
     id: 'N1',
