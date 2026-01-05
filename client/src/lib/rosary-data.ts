@@ -207,7 +207,7 @@ const rawBeads: BeadData[] = [
     type: 'small',
     label: 'B2',
     prayer: {
-      title: 'Hope',
+      title: 'Charity',
       body: HAIL_MARY_START,
       subtext: 'lover of the soul'
     },
@@ -218,7 +218,7 @@ const rawBeads: BeadData[] = [
     type: 'small',
     label: 'B3',
     prayer: {
-      title: 'Charity',
+      title: 'Hope',
       body: HAIL_MARY_START,
       subtext: 'hope of nations'
     },
