@@ -24,6 +24,8 @@ interface PrayerCardProps {
 export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onReadAloudToggle }) => {
   const isMHM = bead.prayer.body.includes("Hail Mary, full of grace");
   const isCross = bead.type === 'cross';
+  // Only the opening Crucifix shows Read Aloud, the info link and the install button
+  const isStartCross = bead.id === 'crucifix';
   const speechRef = useRef<SpeechSynthesisUtterance | null>(null);
   const [showInfo, setShowInfo] = useState(false);
   const { 
@@ -120,7 +122,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
                   <p className="text-xl md:text-2xl leading-relaxed text-primary font-serif font-medium whitespace-pre-line">
                     {bead.prayer.body}
                   </p>
-                  {isCross && (
+                  {isStartCross && (
                     <div className="flex flex-col items-center gap-4 py-4">
                       <motion.div 
                         initial={{ opacity: 0 }}
