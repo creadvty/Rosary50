@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import { RosaryStrip } from "@/components/RosaryStrip";
 import { PrayerCard } from "@/components/PrayerCard";
 import { rosaryBeads } from "@/lib/rosary-data";
-import { ArrowDown, Menu } from "lucide-react";
+import { ArrowDown, Menu, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 export default function Home() {
   // Start at the saved index or default to the last index (Crucifix)
@@ -64,6 +74,17 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  const [showStartOver, setShowStartOver] = useState(false);
+
+  // The rosary begins at the Crucifix, which is the last bead in the list
+  const startIndex = rosaryBeads.length - 1;
+  const isAtStart = currentBeadIndex === startIndex;
+
+  const handleStartOver = () => {
+    setCurrentBeadIndex(startIndex);
+    setShowStartOver(false);
+  };
+
   const currentBead = rosaryBeads[currentBeadIndex];
 
   return (
@@ -75,7 +96,43 @@ export default function Home() {
            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-40 mix-blend-overlay" />
         </div>
 
-        <PrayerCard 
+        {!isAtStart && (
+          <button
+            onClick={(e) => {
+              e.currentTarget.blur();
+              setShowStartOver(true);
+            }}
+            className="absolute top-4 left-4 z-30 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-sans font-medium uppercase tracking-widest text-primary/60 hover:text-primary bg-background/70 hover:bg-primary/10 border border-primary/15 backdrop-blur-sm transition-colors"
+            aria-label="Start over from the beginning of the rosary"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Start Over</span>
+          </button>
+        )}
+
+        <AlertDialog open={showStartOver} onOpenChange={setShowStartOver}>
+          <AlertDialogContent className="bg-[#fdfbf7] border-stone-200">
+            <AlertDialogHeader>
+              <AlertDialogTitle className="font-serif text-2xl text-primary">Start Over?</AlertDialogTitle>
+              <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
+                This will return you to the Crucifix at the beginning of the rosary.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel className="font-sans uppercase tracking-widest">
+                Cancel
+              </AlertDialogCancel>
+              <AlertDialogAction
+                onClick={handleStartOver}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-sans uppercase tracking-widest"
+              >
+                Start Over
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        <PrayerCard
           bead={currentBead} 
           isReadAloud={isReadAloud} 
           onReadAloudToggle={setIsReadAloud}
