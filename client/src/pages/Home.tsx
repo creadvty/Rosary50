@@ -102,10 +102,10 @@ export default function Home() {
               e.currentTarget.blur();
               setShowStartOver(true);
             }}
-            className="absolute top-4 left-4 z-30 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-sans font-medium uppercase tracking-widest text-primary/60 hover:text-primary bg-background/70 hover:bg-primary/10 border border-primary/15 backdrop-blur-sm transition-colors"
+            className="absolute top-4 right-4 z-30 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-sans font-semibold uppercase tracking-widest text-primary bg-primary/10 hover:bg-primary/20 border border-primary/30 shadow-sm backdrop-blur-sm transition-colors"
             aria-label="Start over from the beginning of the rosary"
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <RotateCcw className="w-4 h-4" />
             <span>Start Over</span>
           </button>
         )}
