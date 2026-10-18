@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { BeadType } from '@/lib/rosary-data';
+import crucifixImg from '@assets/generated_images/gold_filigree_crucifix.png';
 
 interface RosaryBeadProps {
   type: BeadType;
@@ -51,18 +52,14 @@ export const RosaryBead: React.FC<RosaryBeadProps> = ({ type, isActive, label, i
         )}>
           {/* Connecting point to chain above */}
           <div className="w-[1px] h-2 bg-stone-400/50 absolute -top-2" />
-          
-          <div className="relative flex flex-col items-center">
-            {/* Horizontal Bar */}
-            <div className="absolute top-4 w-10 h-2 bg-[#D4AF37] rounded-full shadow-md" />
-            {/* Vertical Bar */}
-            <div className="w-2 h-16 bg-[#D4AF37] rounded-full shadow-md" />
-            
-            {/* Highlights for 18k gold look */}
-            <div className="absolute top-4 w-10 h-1 bg-white/20 rounded-full blur-[1px]" />
-            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-16 bg-white/20 rounded-full blur-[1px]" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full pointer-events-none" />
-          </div>
+
+          {/* Gold filigree crucifix */}
+          <img
+            src={crucifixImg}
+            alt="Crucifix"
+            draggable={false}
+            className="w-full h-full object-contain drop-shadow-[0_2px_3px_rgba(60,40,5,0.35)] select-none"
+          />
         </div>
       )}
 
