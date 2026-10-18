@@ -41,6 +41,9 @@ export interface BeadData {
 }
 
 const HAIL_MARY_START = "Hail Mary, full of grace, the Lord is with you. Blessed are you among women and blessed is the fruit of your womb, Jesus";
+// Optional second half of the Hail Mary, added after each clause when the
+// "Holy Mary" switch on the opening Crucifix is turned on.
+export const HOLY_MARY = "Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.";
 const FATIMA_PRAYER = "O my Jesus, forgive us our sins, save us from the fires of hell, and lead all souls to Heaven, especially those in most need of Your Mercy.";
 const OUR_FATHER = `Our Father, Who art in heaven, 
 Hallowed be Thy Name. 

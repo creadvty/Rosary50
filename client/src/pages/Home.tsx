@@ -83,6 +83,23 @@ export default function Home() {
     localStorage.setItem('rosary_read_aloud', isReadAloud.toString());
   }, [isReadAloud]);
 
+  // Whether to add "Holy Mary, Mother of God…" after each clause (off by default)
+  const [includeHolyMary, setIncludeHolyMary] = useState(() => {
+    try {
+      return localStorage.getItem('rosary_holy_mary') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('rosary_holy_mary', includeHolyMary.toString());
+    } catch {
+      // ignore
+    }
+  }, [includeHolyMary]);
+
   // Clear any pending animation timers if the page goes away
   useEffect(() => {
     return () => restartTimers.current.forEach((t) => window.clearTimeout(t));
@@ -267,6 +284,8 @@ export default function Home() {
           bead={currentBead}
           isReadAloud={isReadAloud}
           onReadAloudToggle={setIsReadAloud}
+          includeHolyMary={includeHolyMary}
+          onIncludeHolyMaryToggle={setIncludeHolyMary}
         />
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/50 text-sm animate-pulse flex flex-col items-center gap-2">
