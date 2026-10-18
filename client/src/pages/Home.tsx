@@ -9,6 +9,7 @@ import {
   CONCLUSION_BEAD_ID,
 } from "@/lib/rosary-data";
 import { ArrowDown, RotateCcw } from "lucide-react";
+import crucifixImg from "@assets/generated_images/gold_filigree_crucifix.png";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -248,8 +249,7 @@ export default function Home() {
                 animate={{ scale: 1.3, opacity: 1, rotate: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <div className="absolute left-1/2 -translate-x-1/2 top-0 w-2 h-16 bg-[#D4AF37] rounded-full" />
-                <div className="absolute left-1/2 -translate-x-1/2 top-4 w-10 h-2 bg-[#D4AF37] rounded-full" />
+                <img src={crucifixImg} alt="" draggable={false} className="w-full h-full object-contain select-none" />
               </motion.div>
               <motion.p
                 className="font-serif italic text-2xl text-primary"
