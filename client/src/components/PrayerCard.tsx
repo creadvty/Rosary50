@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BeadData } from '@/lib/rosary-data';
+import { BeadData, HOLY_MARY } from '@/lib/rosary-data';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { usePWAInstall } from '@/hooks/usePWAInstall';
@@ -19,9 +19,17 @@ interface PrayerCardProps {
   bead: BeadData;
   isReadAloud: boolean;
   onReadAloudToggle: (val: boolean) => void;
+  includeHolyMary: boolean;
+  onIncludeHolyMaryToggle: (val: boolean) => void;
 }
 
-export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onReadAloudToggle }) => {
+export const PrayerCard: React.FC<PrayerCardProps> = ({
+  bead,
+  isReadAloud,
+  onReadAloudToggle,
+  includeHolyMary,
+  onIncludeHolyMaryToggle,
+}) => {
   const isMHM = bead.prayer.body.includes("Hail Mary, full of grace");
   const isCross = bead.type === 'cross';
   // Only the opening Crucifix shows Read Aloud, the info link and the install button
@@ -67,6 +75,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
       } else if (isMHM) {
         // For MHM beads, only read the body and subtext (clause)
         textToRead = `${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
+        if (includeHolyMary) textToRead += ` ${HOLY_MARY}`;
       } else {
         textToRead = `${bead.prayer.title}. ${bead.prayer.body}. ${bead.prayer.subtext || ''}`;
       }
@@ -116,6 +125,9 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
                 <p className="text-xl md:text-2xl leading-relaxed font-serif font-medium">
                   <span className="text-primary/50">{bead.prayer.body}, </span>
                   <span className="text-primary">{bead.prayer.subtext}</span>
+                  {includeHolyMary && (
+                    <span className="text-primary/50"> {HOLY_MARY}</span>
+                  )}
                 </p>
               ) : (
                 <div className="space-y-6">
@@ -137,6 +149,26 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({ bead, isReadAloud, onRea
                         <Label htmlFor="read-aloud" className="text-sm font-sans font-medium text-primary/70 uppercase tracking-widest cursor-pointer">
                           Read Aloud
                         </Label>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="flex flex-col items-center gap-1 pb-4 border-b border-primary/10"
+                      >
+                        <div className="flex items-center justify-center gap-3">
+                          <Switch
+                            id="holy-mary"
+                            checked={includeHolyMary}
+                            onCheckedChange={onIncludeHolyMaryToggle}
+                          />
+                          <Label htmlFor="holy-mary" className="text-sm font-sans font-medium text-primary/70 uppercase tracking-widest cursor-pointer">
+                            Add "Holy Mary"
+                          </Label>
+                        </div>
+                        <p className="text-xs font-sans text-primary/50 max-w-xs">
+                          Adds the second half of the Hail Mary after each clause.
+                        </p>
                       </motion.div>
 
                       <motion.button
