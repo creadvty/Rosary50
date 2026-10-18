@@ -633,7 +633,22 @@ const rawBeads: BeadData[] = [
     },
     image: sacredHeartImg,
     stripIcon: medalImg
+  },
+  {
+    // Cross after the Conclusion medal. Reaching it asks whether to begin again.
+    id: 'end-cross',
+    type: 'cross',
+    label: '',
+    prayer: {
+      title: 'End of the Rosary',
+      body: 'Thank you for praying the Carthusian Rosary.'
+    },
+    image: sacredHeartImg
   }
 ];
+
+export const START_BEAD_ID = 'crucifix';
+export const END_BEAD_ID = 'end-cross';
+export const CONCLUSION_BEAD_ID = 'N1';
 
 export const rosaryBeads: BeadData[] = [...rawBeads].reverse();
