@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Share, MoreHorizontal, MoreVertical, Copy, Check, X } from 'lucide-react';
+import { Share, Ellipsis, EllipsisVertical, Copy, Check, X } from 'lucide-react';
 import type { InstallGuideKind } from '@/hooks/usePWAInstall';
 import {
   AlertDialog,
@@ -52,7 +52,7 @@ const GUIDES: Record<InstallGuideKind, { title: string; steps: React.ReactNode[]
         </Icon>
         . If you don't see it, tap{' '}
         <Icon>
-          <MoreHorizontal className="w-5 h-5" />
+          <Ellipsis className="w-5 h-5" />
         </Icon>{' '}
         first.
       </>,
@@ -91,7 +91,7 @@ const GUIDES: Record<InstallGuideKind, { title: string; steps: React.ReactNode[]
       <>
         Open your browser's menu{' '}
         <Icon>
-          <MoreVertical className="w-5 h-5" />
+          <EllipsisVertical className="w-5 h-5" />
         </Icon>{' '}
         (top right, or at the bottom in some browsers).
       </>,
@@ -115,11 +115,11 @@ const GUIDES: Record<InstallGuideKind, { title: string; steps: React.ReactNode[]
       <>
         Tap this app's menu{' '}
         <Icon>
-          <MoreHorizontal className="w-5 h-5" />
+          <Ellipsis className="w-5 h-5" />
         </Icon>{' '}
         or{' '}
         <Icon>
-          <MoreVertical className="w-5 h-5" />
+          <EllipsisVertical className="w-5 h-5" />
         </Icon>
         .
       </>,
