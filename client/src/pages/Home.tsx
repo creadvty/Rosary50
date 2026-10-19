@@ -8,7 +8,9 @@ import {
   END_BEAD_ID,
   CONCLUSION_BEAD_ID,
 } from "@/lib/rosary-data";
-import { ArrowDown, RotateCcw } from "lucide-react";
+import { ArrowDown, RotateCcw, Plus } from "lucide-react";
+import { usePWAInstall } from "@/hooks/usePWAInstall";
+import { InstallSteps } from "@/components/InstallGuide";
 import crucifixImg from "@assets/generated_images/gold_filigree_crucifix.png";
 import {
   AlertDialog,
@@ -27,6 +29,8 @@ const indexOfBead = (id: string) => rosaryBeads.findIndex((b) => b.id === id);
 const START_INDEX = indexOfBead(START_BEAD_ID); // opening Crucifix
 const END_INDEX = indexOfBead(END_BEAD_ID); // cross after the Conclusion medal
 const CONCLUSION_INDEX = indexOfBead(CONCLUSION_BEAD_ID); // Conclusion medal
+
+const END_INSTALL_TAPPED_KEY = "rosary_install_tapped_at_end";
 
 // Timing of the "begin again" animation, in milliseconds
 const RESTART_JUMP_AT = 450; // when the rosary actually resets, behind the veil
@@ -143,6 +147,33 @@ export default function Home() {
   const isAtStart = currentBeadIndex === START_INDEX;
   const isAtEnd = currentBeadIndex === END_INDEX;
 
+  // "Add to Home Screen" on the end-of-rosary pop-up.
+  // Offered until it has been tapped once on this device, then only on the opening Crucifix.
+  const { canInstall, install, guide, closeGuide, trackManualInstall, isPhoneOrTablet } = usePWAInstall();
+  const [offerInstallAtEnd, setOfferInstallAtEnd] = useState(false);
+
+  useEffect(() => {
+    if (!isAtEnd) {
+      closeGuide();
+      return;
+    }
+    try {
+      setOfferInstallAtEnd(localStorage.getItem(END_INSTALL_TAPPED_KEY) !== "true");
+    } catch {
+      setOfferInstallAtEnd(true);
+    }
+  }, [isAtEnd]);
+
+  const handleInstallAtEnd = () => {
+    try {
+      // Remembered for next time; the button stays visible for the rest of this pop-up
+      localStorage.setItem(END_INSTALL_TAPPED_KEY, "true");
+    } catch {
+      // ignore
+    }
+    install("end");
+  };
+
   // "Start Over" button (upper right)
   const handleStartOver = () => {
     setCurrentBeadIndex(START_INDEX);
@@ -225,27 +256,62 @@ export default function Home() {
           }}
         >
           <AlertDialogContent className="bg-[#fdfbf7] border-stone-200">
-            <AlertDialogHeader>
-              <AlertDialogTitle className="font-serif text-2xl text-primary">Return to the Beginning?</AlertDialogTitle>
-              <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
-                You have reached the end of the rosary. Would you like to go back to the Crucifix and begin again?
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel className="font-sans uppercase tracking-widest">
-                No
-              </AlertDialogCancel>
-              <AlertDialogAction
-                onClick={(e) => {
-                  // Keep the pop-up from also running the "No" path as it closes
-                  e.preventDefault();
-                  handleBeginAgain();
-                }}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-sans uppercase tracking-widest"
-              >
-                Yes
-              </AlertDialogAction>
-            </AlertDialogFooter>
+            {guide ? (
+              // After tapping "Add" on iPhone (and other phones without an install box):
+              // the instructions take the place of the question, then "Done" brings it back
+              <>
+                <InstallSteps kind={guide} />
+                <AlertDialogFooter>
+                  <button
+                    type="button"
+                    onClick={trackManualInstall}
+                    className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 font-sans text-sm font-medium uppercase tracking-widest transition-colors"
+                  >
+                    Done
+                  </button>
+                </AlertDialogFooter>
+              </>
+            ) : (
+              <>
+                <AlertDialogHeader>
+                  <AlertDialogTitle className="font-serif text-2xl text-primary">Return to the Beginning?</AlertDialogTitle>
+                  <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
+                    You have reached the end of the rosary. Would you like to go back to the Crucifix and begin again?
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel className="font-sans uppercase tracking-widest">
+                    No
+                  </AlertDialogCancel>
+                  <AlertDialogAction
+                    onClick={(e) => {
+                      // Keep the pop-up from also running the "No" path as it closes
+                      e.preventDefault();
+                      handleBeginAgain();
+                    }}
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 font-sans uppercase tracking-widest"
+                  >
+                    Yes
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+
+                {canInstall && offerInstallAtEnd && (
+                  <div className="flex items-center justify-center gap-3 pt-4 border-t border-primary/10">
+                    <span className="text-xs font-sans font-medium text-primary/70 uppercase tracking-widest">
+                      {isPhoneOrTablet ? "Rosary50 on your home screen" : "Rosary50 on this computer"}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleInstallAtEnd}
+                      className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-sans font-semibold uppercase tracking-widest text-primary bg-primary/10 hover:bg-primary/20 border border-primary/30 shadow-sm transition-colors"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>Add</span>
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
           </AlertDialogContent>
         </AlertDialog>
 

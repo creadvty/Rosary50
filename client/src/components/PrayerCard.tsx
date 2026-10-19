@@ -4,7 +4,7 @@ import { BeadData, HOLY_MARY } from '@/lib/rosary-data';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { usePWAInstall } from '@/hooks/usePWAInstall';
-import { X, Check } from 'lucide-react';
+import { InstallGuideDialog } from '@/components/InstallGuide';
 import { 
   AlertDialog,
   AlertDialogAction,
@@ -36,15 +36,7 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({
   const isStartCross = bead.id === 'crucifix';
   const speechRef = useRef<SpeechSynthesisUtterance | null>(null);
   const [showInfo, setShowInfo] = useState(false);
-  const { 
-    canInstall, 
-    install, 
-    showIOSPrompt, 
-    setShowIOSPrompt, 
-    showSafariPrompt, 
-    setShowSafariPrompt, 
-    trackManualInstall 
-  } = usePWAInstall();
+  const { canInstall, install, guide, closeGuide, trackManualInstall, buttonLabel } = usePWAInstall();
 
   useEffect(() => {
     if (isReadAloud) {
@@ -186,10 +178,10 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 0.4 }}
-                          onClick={install}
+                          onClick={() => install('start')}
                           className="mt-2 px-6 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-full font-sans text-sm uppercase tracking-widest transition-colors border border-primary/20"
                         >
-                          Add to Home Page
+                          {buttonLabel}
                         </motion.button>
                       )}
                     </div>
@@ -248,55 +240,8 @@ export const PrayerCard: React.FC<PrayerCardProps> = ({
         </AlertDialogContent>
       </AlertDialog>
 
-      {/* iOS Install Prompt */}
-      <AlertDialog open={showIOSPrompt} onOpenChange={setShowIOSPrompt}>
-        <AlertDialogContent className="bg-[#fdfbf7] border-stone-200">
-          <div className="absolute right-4 top-4">
-            <button onClick={() => setShowIOSPrompt(false)} className="text-primary/40 hover:text-primary transition-colors">
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-          <AlertDialogHeader>
-            <AlertDialogTitle className="font-serif text-2xl text-primary">Install on iOS</AlertDialogTitle>
-            <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
-              Tap <span className="font-bold">Share</span> then <span className="font-bold">Add to Home Screen</span> to install this app on your device.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction 
-              onClick={() => trackManualInstall('ios_manual')}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2"
-            >
-              <Check className="h-4 w-4" /> Done
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      {/* Safari Desktop Install Prompt */}
-      <AlertDialog open={showSafariPrompt} onOpenChange={setShowSafariPrompt}>
-        <AlertDialogContent className="bg-[#fdfbf7] border-stone-200">
-          <div className="absolute right-4 top-4">
-            <button onClick={() => setShowSafariPrompt(false)} className="text-primary/40 hover:text-primary transition-colors">
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-          <AlertDialogHeader>
-            <AlertDialogTitle className="font-serif text-2xl text-primary">Install on Safari</AlertDialogTitle>
-            <AlertDialogDescription className="text-lg leading-relaxed text-primary/80 font-serif">
-              Go to <span className="font-bold">File</span> then <span className="font-bold">Add to Dock</span> to install this app.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction 
-              onClick={() => trackManualInstall('safari_manual')}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2"
-            >
-              <Check className="h-4 w-4" /> Done
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      {/* Step-by-step instructions when the browser has no install box of its own */}
+      <InstallGuideDialog kind={guide} onClose={closeGuide} onDone={trackManualInstall} />
     </div>
   );
 };
