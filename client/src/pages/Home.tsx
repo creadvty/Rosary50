@@ -8,7 +8,7 @@ import {
   END_BEAD_ID,
   CONCLUSION_BEAD_ID,
 } from "@/lib/rosary-data";
-import { ArrowDown, RotateCcw, Plus } from "lucide-react";
+import { ArrowDown, RotateCcw } from "lucide-react";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import { InstallSteps } from "@/components/InstallGuide";
 import crucifixImg from "@assets/generated_images/gold_filigree_crucifix.png";
@@ -298,15 +298,14 @@ export default function Home() {
                 {canInstall && offerInstallAtEnd && (
                   <div className="flex items-center justify-center gap-3 pt-4 border-t border-primary/10">
                     <span className="text-xs font-sans font-medium text-primary/70 uppercase tracking-widest">
-                      {isPhoneOrTablet ? "Rosary50 on your home screen" : "Rosary50 on this computer"}
+                      {isPhoneOrTablet ? "Add Rosary50 app to phone?" : "Add Rosary50 app to this computer?"}
                     </span>
                     <button
                       type="button"
                       onClick={handleInstallAtEnd}
                       className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-sans font-semibold uppercase tracking-widest text-primary bg-primary/10 hover:bg-primary/20 border border-primary/30 shadow-sm transition-colors"
                     >
-                      <Plus className="w-3.5 h-3.5" />
-                      <span>Add</span>
+                      <span>OK</span>
                     </button>
                   </div>
                 )}
